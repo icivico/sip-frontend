@@ -19,6 +19,7 @@
     	
 package com.iccapps.sip.frontend;
 
+import gov.nist.javax.sip.header.Contact;
 import gov.nist.javax.sip.header.Route;
 
 import java.io.File;
@@ -58,6 +59,7 @@ import javax.sip.address.AddressFactory;
 import javax.sip.address.SipURI;
 import javax.sip.header.CSeqHeader;
 import javax.sip.header.CallIdHeader;
+import javax.sip.header.ContactHeader;
 import javax.sip.header.FromHeader;
 import javax.sip.header.Header;
 import javax.sip.header.HeaderFactory;
@@ -278,7 +280,7 @@ public class Frontend implements SipListener {
 
 	public void processRequest(RequestEvent ev) {
 		Request req = ev.getRequest();
-		//logger.debug("Received request " + req);
+		//logger.trace("Received request " + req);
 		
 		ServerTransaction st = ev.getServerTransaction(); 
 		if ( st != null ) {
@@ -323,6 +325,20 @@ public class Frontend implements SipListener {
             String viaHost = viaHeader.getHost();
             int viaPort = viaHeader.getPort();
             if (viaPort == -1) viaPort = 5060;
+            
+            // process affinity if X-balancer header present
+            if (res.getHeader("X-Balancer") != null) {
+            	logger.debug("Processing: " + res.toString());
+    			CallIdHeader callid = (CallIdHeader)res.getHeader(CallIdHeader.NAME);
+    			ContactHeader contact = (ContactHeader)res.getHeader(Contact.NAME);
+    			try {
+					SipURI addrUri = (SipURI) contact.getAddress().getURI();
+					processDialogAffinity(callid.getCallId(), addrUri.getHost(), ""+addrUri.getPort());	
+					
+				} catch (NullPointerException e) {
+					e.printStackTrace();
+				}
+    		}
 
             if ( udp.getIPAddress().equals(viaHost) && viaPort == udp.getPort() )
             {
@@ -338,7 +354,7 @@ public class Frontend implements SipListener {
 						sipProvider.sendResponse(res);
 						
 						if (logger.isDebugEnabled())
-	                        logger.debug("Response forwarded statelessly.");
+	                        logger.debug("Response forwarded statelessly " + res.getStatusCode());
 
 	                    if (logger.isTraceEnabled())
 	                        logger.trace("\n"+res);
@@ -369,6 +385,7 @@ public class Frontend implements SipListener {
 	private void forwardRequest(Request req) {
 		logger.debug("Forwarding request " + req);
 		
+		CallIdHeader callid = (CallIdHeader)req.getHeader(CallIdHeader.NAME);
 		ViaHeader via = (ViaHeader)req.getHeader(ViaHeader.NAME);
 		
 		if (isInitial(req)) {
@@ -381,21 +398,8 @@ public class Frontend implements SipListener {
 			
 		} else {
 			// find or create affinity
-			NodeInfo node = processAffinityInDialog(req);
-			/*Affinity a = affinities.get(callid);
-			if (a != null) {
-				a.refresh();
-				node = activeNodes.get(a.getNodeid());
-				if (node == null) {
-					logger.error("Node not available");
-					sendInternalServerError(req, "Node not available");	
-					return;
-				}
-			} else {
-				logger.error("Affinity not found");
-				sendInternalServerError(req, "Affinity not found");
-				return;
-			}*/
+			NodeInfo node = processDialogAffinity(callid.getCallId(), via.getHost(), ""+via.getPort());
+			
 			if (node == null) {
 				logger.error("Node or affinity for request not found");
 				//sendInternalServerError(req, "Affinity not found");
@@ -404,6 +408,21 @@ public class Frontend implements SipListener {
 			}
 			
 			if (via.getHost().equals(node.getHost()) && via.getPort() == node.getPort()) {
+				if (req.getMethod().equalsIgnoreCase(Request.OPTIONS) &&
+						req.getHeader("X-Balancer") != null) {
+					// if X-Balancer header present, do not forward and reply
+					Response res;
+					try {
+						res = messageFactory.createResponse(Response.OK, req);
+						sipProvider.sendResponse(res);
+						
+					} catch (ParseException e) {
+						e.printStackTrace();
+					} catch (SipException e) {
+						e.printStackTrace();
+					}
+					return;
+				}
 				forwardOutboundIndialog(req);
 			} else {
 				forwardInboundIndialog(req, node);
@@ -841,40 +860,36 @@ public class Frontend implements SipListener {
 	 * @param req
 	 * @return
 	 */
-	private NodeInfo processAffinityInDialog(Request req) {
-		logger.debug("Affinity updating");
+	private NodeInfo processDialogAffinity(String callid, String viaHost, String viaPort) {
 		NodeInfo node = null;
 		try {
 			// update affinity
-			String callid = ((CallIdHeader)req.getHeader(CallIdHeader.NAME)).getCallId();
-			ViaHeader via = (ViaHeader)req.getHeader(ViaHeader.NAME);
-			String uri = "sip:"+via.getHost()+":"+via.getPort();
+			//String callid = ((CallIdHeader)req.getHeader(CallIdHeader.NAME)).getCallId();
+			//ViaHeader via = (ViaHeader)req.getHeader(ViaHeader.NAME);
+			String uri = "sip:"+viaHost+":"+viaPort;
 			Affinity a = affinities.get(callid);
 			node = activeNodes.get(uri);
+			logger.debug("Affinity updating uri: "+ uri);
 			if (a == null) {
 				if (node != null) {
-					// outbound request
-					if (req.getMethod().equals(Request.OPTIONS)) {
-						// restore affinity on OPTIONS
-						a = new Affinity(callid, node.getUri());
-						affinities.put(callid, a);
-						logger.info("New affinity created:" + a.getCallid() + ", " + a.getNodeid());
-						
-					} else {
-						logger.warn("Outbound request without affinity info: " + callid);
-					}
+					// create affinity
+					a = new Affinity(callid, node.getUri());
+					affinities.put(callid, a);
+					logger.info("New affinity created:" + a.getCallid() + ", " + a.getNodeid());
 					
 				} else {
 					// inbound request
-					logger.debug("Inbound request " + uri + " without affinity");
+					logger.warn("Inbound request " + uri + " without affinity");
 					// -- wait for node handover and uac retry --
 				}
 			} else {
 				if (node != null) {
 					// outbound request, update node info
-					a.setNodeid(node.getUri());
-					a.refresh();
+					if (!a.getNodeid().equals(node.getUri())) {
+						a.setNodeid(node.getUri());
+						a.refresh();
 					logger.debug("Affinity updated:" + a.getCallid() + ", " + a.getNodeid());
+					}
 					
 				} else {
 					// inbound request, get related node
