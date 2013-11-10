@@ -217,21 +217,21 @@ public class Frontend implements SipListener {
 		sipFactory = SipFactory.getInstance();
 		sipFactory.setPathName("gov.nist");
 		
+		String udpport = config.getProperty("frontend.udpport");
+		String tcpport = config.getProperty("frontend.tcpport");
+		String tlsport = config.getProperty("frontend.tlsport");
+		String ip = config.getProperty("frontend.ip", "127.0.0.1");
+		
 		Properties properties = new Properties();
 		properties.setProperty("javax.sip.STACK_NAME","SIP Cluster Frontend");
 		properties.setProperty("javax.sip.AUTOMATIC_DIALOG_SUPPORT", "off");
-		//properties.load(new FileInputStream(new File("jsip.properties")));
+		if (tlsport != null)
+			properties.setProperty("gov.nist.javax.sip.TLS_CLIENT_AUTH_TYPE", "Disabled");
 		
 		sipStack = sipFactory.createSipStack(properties);
 		headerFactory = sipFactory.createHeaderFactory();
 		addressFactory = sipFactory.createAddressFactory();
 		messageFactory = sipFactory.createMessageFactory();
-		
-		
-		String udpport = config.getProperty("frontend.udpport");
-		String tcpport = config.getProperty("frontend.tcpport");
-		String tlsport = config.getProperty("frontend.tlsport");
-		String ip = config.getProperty("frontend.ip", "127.0.0.1");
 		
 		// create provider
 		if (udpport != null)
@@ -243,14 +243,14 @@ public class Frontend implements SipListener {
 		if (udp != null)
 			sipProvider = sipStack.createSipProvider(udp);
 		if (tcp != null) {
-			if (sipProvider != null) 
-				sipStack.createSipProvider(tcp);
+			if (sipProvider == null) 
+				sipProvider = sipStack.createSipProvider(tcp);
 			else
 				sipProvider.addListeningPoint(tcp);
 		}
 		if (tls != null) {
-			if (sipProvider != null) 
-				sipStack.createSipProvider(tls);
+			if (sipProvider == null) 
+				sipProvider = sipStack.createSipProvider(tls);
 			else
 				sipProvider.addListeningPoint(tls);
 		}

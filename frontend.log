@@ -1835,3 +1835,53 @@ javax.net.ssl.SSLHandshakeException: no cipher suites in common
 [10/11/2013 12:13:20,319] WARN  SIP Cluster Frontend - TLS settings will be inactive - TLS key store can not be configured. keyStoreType=jks javax.net.ssl.keyStore=null javax.net.ssl.keyStorePassword=null
 [10/11/2013 12:13:23,494] INFO  com.iccapps.sip.frontend.Frontend - SIP node added: sip:127.0.0.1:5070
 [10/11/2013 12:13:34,610] INFO  com.iccapps.sip.frontend.Frontend - Stopping sip endpoint
+[10/11/2013 19:42:02,365] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 19:42:02,418] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 19:42:02,425] WARN  SIP Cluster Frontend - Using default keystore type jks
+[10/11/2013 19:42:02,425] WARN  SIP Cluster Frontend - TLS settings will be inactive - TLS key store can not be configured. keyStoreType=jks javax.net.ssl.keyStore=null javax.net.ssl.keyStorePassword=null
+[10/11/2013 19:44:11,032] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 19:44:11,167] ERROR SIP Cluster Frontend - could not instantiate SSL networking
+java.io.IOException: Keystore was tampered with, or password was incorrect
+	at sun.security.provider.JavaKeyStore.engineLoad(Unknown Source)
+	at sun.security.provider.JavaKeyStore$JKS.engineLoad(Unknown Source)
+	at java.security.KeyStore.load(Unknown Source)
+	at gov.nist.core.net.SslNetworkLayer.<init>(SslNetworkLayer.java:115)
+	at gov.nist.javax.sip.SipStackImpl.<init>(SipStackImpl.java:870)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at javax.sip.SipFactory.createStack(SipFactory.java:314)
+	at javax.sip.SipFactory.createSipStack(SipFactory.java:152)
+	at com.iccapps.sip.frontend.Frontend.start(Frontend.java:225)
+	at com.iccapps.sip.frontend.Frontend.main(Frontend.java:296)
+Caused by: java.security.UnrecoverableKeyException: Password verification failed
+	... 13 more
+[10/11/2013 19:44:11,170] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 19:44:11,173] WARN  SIP Cluster Frontend - Using default keystore type jks
+[10/11/2013 19:44:11,173] INFO  SIP Cluster Frontend - javax.net.ssl.trustStorePassword is null, using the password passed through javax.net.ssl.keyStorePassword
+[10/11/2013 19:44:11,173] WARN  SIP Cluster Frontend - Using default truststore type jks
+[10/11/2013 19:44:11,173] WARN  SIP Cluster Frontend - TLS settings will be inactive - TLS trust store can not be configured. trustStoreType=jks javax.net.ssl.trustStore=null javax.net.ssl.trustStorePassword=***
+[10/11/2013 19:48:24,948] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 19:48:25,088] ERROR SIP Cluster Frontend - could not instantiate SSL networking
+java.io.IOException: Keystore was tampered with, or password was incorrect
+	at sun.security.provider.JavaKeyStore.engineLoad(Unknown Source)
+	at sun.security.provider.JavaKeyStore$JKS.engineLoad(Unknown Source)
+	at java.security.KeyStore.load(Unknown Source)
+	at gov.nist.core.net.SslNetworkLayer.<init>(SslNetworkLayer.java:115)
+	at gov.nist.javax.sip.SipStackImpl.<init>(SipStackImpl.java:870)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at javax.sip.SipFactory.createStack(SipFactory.java:314)
+	at javax.sip.SipFactory.createSipStack(SipFactory.java:152)
+	at com.iccapps.sip.frontend.Frontend.start(Frontend.java:225)
+	at com.iccapps.sip.frontend.Frontend.main(Frontend.java:296)
+Caused by: java.security.UnrecoverableKeyException: Password verification failed
+	... 13 more
+[10/11/2013 19:48:25,091] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 19:48:25,093] WARN  SIP Cluster Frontend - Using default keystore type jks
+[10/11/2013 19:48:25,094] INFO  SIP Cluster Frontend - javax.net.ssl.trustStorePassword is null, using the password passed through javax.net.ssl.keyStorePassword
+[10/11/2013 19:48:25,094] WARN  SIP Cluster Frontend - Using default truststore type jks
+[10/11/2013 19:48:25,094] WARN  SIP Cluster Frontend - TLS settings will be inactive - TLS trust store can not be configured. trustStoreType=jks javax.net.ssl.trustStore=null javax.net.ssl.trustStorePassword=***
