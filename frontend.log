@@ -1,0 +1,1837 @@
+[10/11/2013 11:20:22,887] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:20:22,946] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:21:17,158] INFO  com.iccapps.sip.frontend.Frontend - SIP node added: sip:127.0.0.1:5070
+[10/11/2013 11:23:08,307] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=4e716c1bc99724a0;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:08,307] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:08,312] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:08,313] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-930a12737c024226-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=e608ad61
+Call-ID: Y2U0ZjljZjY1OTdlODcwZDI4YjI3YjI4OGVjNmJiMmY.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:08,313] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:08,336] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:08,336] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:08,336] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6081149493058204227
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:08,795] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-930a12737c024226-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=e608ad61
+Call-ID: Y2U0ZjljZjY1OTdlODcwZDI4YjI3YjI4OGVjNmJiMmY.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:08,796] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:08,798] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=4e716c1bc99724a0;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:08,799] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:08,802] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:08,810] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:08,811] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:08,812] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6081149493058204227
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:09,795] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-930a12737c024226-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=e608ad61
+Call-ID: Y2U0ZjljZjY1OTdlODcwZDI4YjI3YjI4OGVjNmJiMmY.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:09,796] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:09,799] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=4e716c1bc99724a0;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:09,800] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:09,802] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:09,810] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:09,811] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:09,812] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6081149493058204227
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:11,795] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-930a12737c024226-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=e608ad61
+Call-ID: Y2U0ZjljZjY1OTdlODcwZDI4YjI3YjI4OGVjNmJiMmY.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:11,796] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:11,799] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=4e716c1bc99724a0;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:11,800] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:11,802] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:11,810] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:11,811] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:11,811] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6081149493058204227
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:15,796] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-930a12737c024226-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=e608ad61
+Call-ID: Y2U0ZjljZjY1OTdlODcwZDI4YjI3YjI4OGVjNmJiMmY.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:15,797] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:15,800] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=4e716c1bc99724a0;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:15,800] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:15,803] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:15,812] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:15,814] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:15,814] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6081149493058204227
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:19,794] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-930a12737c024226-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=e608ad61
+Call-ID: Y2U0ZjljZjY1OTdlODcwZDI4YjI3YjI4OGVjNmJiMmY.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:19,794] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:19,797] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=4e716c1bc99724a0;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:19,799] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:19,799] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:19,804] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:19,804] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:19,804] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6081149493058204227
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:23,310] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+[10/11/2013 11:23:23,794] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-930a12737c024226-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=e608ad61
+Call-ID: Y2U0ZjljZjY1OTdlODcwZDI4YjI3YjI4OGVjNmJiMmY.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:23,795] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:23,797] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=4e716c1bc99724a0;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:23,798] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:23,798] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:23,800] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+[10/11/2013 11:23:23,801] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:23,802] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:23,802] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6081149493058204227
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:24,800] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+[10/11/2013 11:23:26,801] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+[10/11/2013 11:23:27,798] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-930a12737c024226-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=e608ad61
+Call-ID: Y2U0ZjljZjY1OTdlODcwZDI4YjI3YjI4OGVjNmJiMmY.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:27,798] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:27,802] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=4e716c1bc99724a0;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:27,803] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:27,805] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:27,813] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:27,815] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:27,816] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6081149493058204227
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:30,801] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+[10/11/2013 11:23:31,799] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-930a12737c024226-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=e608ad61
+Call-ID: Y2U0ZjljZjY1OTdlODcwZDI4YjI3YjI4OGVjNmJiMmY.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:31,800] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:31,801] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=4e716c1bc99724a0;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:31,802] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:31,804] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:31,809] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:31,811] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:31,811] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6081149493058204227
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:34,800] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+[10/11/2013 11:23:35,800] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-930a12737c024226-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=e608ad61
+Call-ID: Y2U0ZjljZjY1OTdlODcwZDI4YjI3YjI4OGVjNmJiMmY.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:35,801] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:35,804] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=4e716c1bc99724a0;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:35,805] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:35,808] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:35,816] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:35,817] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:35,819] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6081149493058204227
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:38,798] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+[10/11/2013 11:23:39,329] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=05c388c4670ed2c6;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:39,329] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:39,330] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:39,331] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-82bad11086e240e4-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=f0109c77
+Call-ID: ODYyZTJkZjA5MTc5NzUyZTRjOWI3M2Y1OTdiNmJmYmE.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:39,331] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:39,338] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:39,338] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:39,338] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6030334819312248800
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:39,800] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-930a12737c024226-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=e608ad61
+Call-ID: Y2U0ZjljZjY1OTdlODcwZDI4YjI3YjI4OGVjNmJiMmY.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:39,801] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:39,804] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=4e716c1bc99724a0;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:39,804] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:39,807] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:39,814] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:39,816] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:39,817] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6081149493058204227
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-88f6c8539758e7fd-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=47439c2b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:39,825] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-82bad11086e240e4-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=f0109c77
+Call-ID: ODYyZTJkZjA5MTc5NzUyZTRjOWI3M2Y1OTdiNmJmYmE.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:39,826] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:39,829] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=05c388c4670ed2c6;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:39,830] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:39,834] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:39,842] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:39,844] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:39,845] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6030334819312248800
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:40,825] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-82bad11086e240e4-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=f0109c77
+Call-ID: ODYyZTJkZjA5MTc5NzUyZTRjOWI3M2Y1OTdiNmJmYmE.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:40,826] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:40,828] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=05c388c4670ed2c6;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:40,828] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:40,831] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:40,838] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:40,839] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:40,840] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6030334819312248800
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:42,804] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+[10/11/2013 11:23:42,827] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-82bad11086e240e4-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=f0109c77
+Call-ID: ODYyZTJkZjA5MTc5NzUyZTRjOWI3M2Y1OTdiNmJmYmE.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:42,828] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:42,831] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=05c388c4670ed2c6;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:42,831] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:42,835] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:42,843] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:42,845] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:42,846] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6030334819312248800
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:46,802] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+[10/11/2013 11:23:46,828] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-82bad11086e240e4-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=f0109c77
+Call-ID: ODYyZTJkZjA5MTc5NzUyZTRjOWI3M2Y1OTdiNmJmYmE.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:46,829] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:46,830] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=05c388c4670ed2c6;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:46,831] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:46,835] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:46,846] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:46,847] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:46,848] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6030334819312248800
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:50,806] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+[10/11/2013 11:23:50,829] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-82bad11086e240e4-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=f0109c77
+Call-ID: ODYyZTJkZjA5MTc5NzUyZTRjOWI3M2Y1OTdiNmJmYmE.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:50,829] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:50,831] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=05c388c4670ed2c6;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:50,832] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:50,834] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:50,841] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:50,842] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:50,842] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6030334819312248800
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:54,329] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+[10/11/2013 11:23:54,806] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity NGE4MGZjYTY0MTVhOGU5NGQxYzhkYzkyYTE4ZjMxYTk.
+[10/11/2013 11:23:54,828] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-82bad11086e240e4-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=f0109c77
+Call-ID: ODYyZTJkZjA5MTc5NzUyZTRjOWI3M2Y1OTdiNmJmYmE.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:54,828] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:54,830] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+[10/11/2013 11:23:54,832] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=05c388c4670ed2c6;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:54,833] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:54,835] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:54,842] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:54,843] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:54,844] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6030334819312248800
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:23:55,829] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+[10/11/2013 11:23:57,833] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+[10/11/2013 11:23:58,828] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-82bad11086e240e4-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=f0109c77
+Call-ID: ODYyZTJkZjA5MTc5NzUyZTRjOWI3M2Y1OTdiNmJmYmE.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:58,828] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:23:58,831] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=05c388c4670ed2c6;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:23:58,832] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:23:58,834] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:23:58,841] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:23:58,842] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:23:58,843] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6030334819312248800
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:24:01,832] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+[10/11/2013 11:24:02,828] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-82bad11086e240e4-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=f0109c77
+Call-ID: ODYyZTJkZjA5MTc5NzUyZTRjOWI3M2Y1OTdiNmJmYmE.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:24:02,828] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:24:02,831] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=05c388c4670ed2c6;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:24:02,831] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:24:02,833] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:24:02,840] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:24:02,841] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:24:02,842] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6030334819312248800
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:24:05,832] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+[10/11/2013 11:24:06,828] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:101@127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-82bad11086e240e4-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=f0109c77
+Call-ID: ODYyZTJkZjA5MTc5NzUyZTRjOWI3M2Y1OTdiNmJmYmE.
+CSeq: 1 SUBSCRIBE
+Expires: 3600
+Accept: application/simple-message-summary
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Event: message-summary
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:24:06,829] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:24:06,832] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:127.0.0.1:5080;transport=UDP SIP/2.0
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+Max-Forwards: 70
+Contact: <sip:101@77.231.235.115:16412;rinstance=05c388c4670ed2c6;transport=UDP>
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+CSeq: 1 REGISTER
+Expires: 3600
+Allow: INVITE,ACK,CANCEL,BYE,NOTIFY,REFER,MESSAGE,OPTIONS,INFO,SUBSCRIBE
+Supported: replaces,norefersub,extended-refer,timer,X-cisco-serviceuri
+User-Agent: Zoiper for Windows 2.41 r19887
+Allow-Events: presence,kpml
+Content-Length: 0
+
+
+[10/11/2013 11:24:06,832] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:24:06,835] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:24:06,842] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:24:06,843] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:24:06,844] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=-6030334819312248800
+Via: SIP/2.0/UDP 77.231.235.115:16412;branch=z9hG4bK-d8754z-546a4c44b8ffa180-1---d8754z-;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+From: "101" <sip:101@127.0.0.1:5080;transport=UDP>;tag=b178dd36
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:24:09,834] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+[10/11/2013 11:24:13,832] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+[10/11/2013 11:24:15,026] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/UDP 192.168.0.105:53824;rport=53824;branch=z9hG4bKPj15eceb1497304f9b8eecb6021b9c40b3;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=84cc2ff71b5d430190b0c5aaa23b8a82
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:53824>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: eff9d0e6ae224307a716d0778ee50b12
+CSeq: 1 REGISTER
+Expires: 600
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:24:15,026] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:24:15,028] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:24:15,031] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request PUBLISH sip:100@localhost SIP/2.0
+Via: SIP/2.0/UDP 192.168.0.105:53824;rport=53824;branch=z9hG4bKPj03840d07105e48f98a4cd045700eaa32;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=c4a8b8461a694264a7240bc21be3ee5c
+To: "icivico" <sip:100@localhost>
+Call-ID: 334f65f8d6314004802cc0519984df66
+CSeq: 1 PUBLISH
+Event: presence
+Expires: 600
+User-Agent: Blink 0.5.0 (Windows)
+Content-Type: application/pidf+xml
+Content-Length: 1826
+
+<?xml version='1.0' encoding='UTF-8'?>
+<presence xmlns:c="urn:ietf:params:xml:ns:pidf:cipid" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" xmlns:agp-caps="urn:ag-projects:xml:ns:pidf:caps" xmlns:caps="urn:ietf:params:xml:ns:pidf:caps" xmlns:rpid="urn:ietf:params:xml:ns:pidf:rpid" xmlns:agp-pidf="urn:ag-projects:xml:ns:pidf" xmlns="urn:ietf:params:xml:ns:pidf" entity="sip%3A100%40localhost"><tuple id="SID-7502db75-b8ca-4b5c-9c80-b800cc284843"><status><basic>open</basic><agp-pidf:extended>busy</agp-pidf:extended></status><caps:servcaps><caps:audio>true</caps:audio><caps:message>false</caps:message><caps:text>false</caps:text><agp-caps:file-transfer>false</agp-caps:file-transfer><agp-caps:screen-sharing-server>false</agp-caps:screen-sharing-server><agp-caps:screen-sharing-client>false</agp-caps:screen-sharing-client></caps:servcaps><c:display-name>icivico</c:display-name><agp-pidf:device-info id="7502db75-b8ca-4b5c-9c80-b800cc284843"><agp-pidf:description>TUNS-ICIVICO</agp-pidf:description><agp-pidf:user-agent>Blink 0.5.0 (Windows)</agp-pidf:user-agent><agp-pidf:time-offset>60</agp-pidf:time-offset></agp-pidf:device-info><rpid:user-input idle-threshold="600">active</rpid:user-input><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><contact>sip%3A100%40localhost</contact><note>On the phone</note><timestamp>2013-11-10T11:24:14.846000+01:00</timestamp></tuple><dm:person id="PID-000d61a1258cf95b9ad3231be8f1da1d"><rpid:activities><rpid:busy/></rpid:activities><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:person><dm:device id="DID-7502db75-b8ca-4b5c-9c80-b800cc284843"><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><dm:note>Blink 0.5.0 (Windows) at TUNS-ICIVICO</dm:note><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:device></presence>
+[10/11/2013 11:24:15,032] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed PUBLISH
+[10/11/2013 11:24:15,039] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:24:15,040] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:24:15,041] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "icivico" <sip:100@localhost>;tag=755609790467409667
+Via: SIP/2.0/UDP 192.168.0.105:53824;rport=53824;branch=z9hG4bKPj15eceb1497304f9b8eecb6021b9c40b3;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: eff9d0e6ae224307a716d0778ee50b12
+From: "icivico" <sip:100@localhost>;tag=84cc2ff71b5d430190b0c5aaa23b8a82
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:24:15,066] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:100@localhost SIP/2.0
+Via: SIP/2.0/UDP 192.168.0.105:53824;rport=53824;branch=z9hG4bKPj4d61f3e35b05478eb1b478e133702802;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=51da94a32796455aa4710f9732f28e29
+To: <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:53824>
+Call-ID: 4554b21c05ba48acb21ea0e6dab4292e
+CSeq: 23302 SUBSCRIBE
+Event: message-summary
+Expires: 600
+Supported: 100rel,replaces,norefersub,gruu
+Accept: application/simple-message-summary
+Allow-Events: conference,message-summary,dialog,presence,presence.winfo,xcap-diff,dialog.winfo,refer
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:24:15,067] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:24:16,307] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request PUBLISH sip:100@localhost SIP/2.0
+Via: SIP/2.0/UDP 192.168.0.105:53824;rport=53824;branch=z9hG4bKPj4165c2425dd242a0b78d1bc302ab8655;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=36c843bd171d47bab4a361ed9e94d813
+To: "icivico" <sip:100@localhost>
+Call-ID: 6f9ff9adf6704e218b7e926b8a13f25b
+CSeq: 1 PUBLISH
+Event: presence
+Expires: 600
+User-Agent: Blink 0.5.0 (Windows)
+Content-Type: application/pidf+xml
+Content-Length: 1826
+
+<?xml version='1.0' encoding='UTF-8'?>
+<presence xmlns:c="urn:ietf:params:xml:ns:pidf:cipid" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" xmlns:agp-caps="urn:ag-projects:xml:ns:pidf:caps" xmlns:caps="urn:ietf:params:xml:ns:pidf:caps" xmlns:rpid="urn:ietf:params:xml:ns:pidf:rpid" xmlns:agp-pidf="urn:ag-projects:xml:ns:pidf" xmlns="urn:ietf:params:xml:ns:pidf" entity="sip%3A100%40localhost"><tuple id="SID-7502db75-b8ca-4b5c-9c80-b800cc284843"><status><basic>open</basic><agp-pidf:extended>busy</agp-pidf:extended></status><caps:servcaps><caps:audio>true</caps:audio><caps:message>false</caps:message><caps:text>false</caps:text><agp-caps:file-transfer>false</agp-caps:file-transfer><agp-caps:screen-sharing-server>false</agp-caps:screen-sharing-server><agp-caps:screen-sharing-client>false</agp-caps:screen-sharing-client></caps:servcaps><c:display-name>icivico</c:display-name><agp-pidf:device-info id="7502db75-b8ca-4b5c-9c80-b800cc284843"><agp-pidf:description>TUNS-ICIVICO</agp-pidf:description><agp-pidf:user-agent>Blink 0.5.0 (Windows)</agp-pidf:user-agent><agp-pidf:time-offset>60</agp-pidf:time-offset></agp-pidf:device-info><rpid:user-input idle-threshold="600">active</rpid:user-input><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><contact>sip%3A100%40localhost</contact><note>On the phone</note><timestamp>2013-11-10T11:24:14.846000+01:00</timestamp></tuple><dm:person id="PID-000d61a1258cf95b9ad3231be8f1da1d"><rpid:activities><rpid:busy/></rpid:activities><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:person><dm:device id="DID-7502db75-b8ca-4b5c-9c80-b800cc284843"><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><dm:note>Blink 0.5.0 (Windows) at TUNS-ICIVICO</dm:note><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:device></presence>
+[10/11/2013 11:24:16,308] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed PUBLISH
+[10/11/2013 11:24:17,831] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+[10/11/2013 11:24:20,208] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request PUBLISH sip:100@localhost SIP/2.0
+Via: SIP/2.0/UDP 192.168.0.105:53824;rport=53824;branch=z9hG4bKPja83dbdcea7234396a424ca4700e7ea44;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=e0948d8db05942e89b117af940018898
+To: "icivico" <sip:100@localhost>
+Call-ID: a06b4065d0ff40c4bf222248556bfb23
+CSeq: 1 PUBLISH
+Event: presence
+Expires: 600
+User-Agent: Blink 0.5.0 (Windows)
+Content-Type: application/pidf+xml
+Content-Length: 1826
+
+<?xml version='1.0' encoding='UTF-8'?>
+<presence xmlns:c="urn:ietf:params:xml:ns:pidf:cipid" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" xmlns:agp-caps="urn:ag-projects:xml:ns:pidf:caps" xmlns:caps="urn:ietf:params:xml:ns:pidf:caps" xmlns:rpid="urn:ietf:params:xml:ns:pidf:rpid" xmlns:agp-pidf="urn:ag-projects:xml:ns:pidf" xmlns="urn:ietf:params:xml:ns:pidf" entity="sip%3A100%40localhost"><tuple id="SID-7502db75-b8ca-4b5c-9c80-b800cc284843"><status><basic>open</basic><agp-pidf:extended>busy</agp-pidf:extended></status><caps:servcaps><caps:audio>true</caps:audio><caps:message>false</caps:message><caps:text>false</caps:text><agp-caps:file-transfer>false</agp-caps:file-transfer><agp-caps:screen-sharing-server>false</agp-caps:screen-sharing-server><agp-caps:screen-sharing-client>false</agp-caps:screen-sharing-client></caps:servcaps><c:display-name>icivico</c:display-name><agp-pidf:device-info id="7502db75-b8ca-4b5c-9c80-b800cc284843"><agp-pidf:description>TUNS-ICIVICO</agp-pidf:description><agp-pidf:user-agent>Blink 0.5.0 (Windows)</agp-pidf:user-agent><agp-pidf:time-offset>60</agp-pidf:time-offset></agp-pidf:device-info><rpid:user-input idle-threshold="600">active</rpid:user-input><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><contact>sip%3A100%40localhost</contact><note>On the phone</note><timestamp>2013-11-10T11:24:14.846000+01:00</timestamp></tuple><dm:person id="PID-000d61a1258cf95b9ad3231be8f1da1d"><rpid:activities><rpid:busy/></rpid:activities><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:person><dm:device id="DID-7502db75-b8ca-4b5c-9c80-b800cc284843"><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><dm:note>Blink 0.5.0 (Windows) at TUNS-ICIVICO</dm:note><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:device></presence>
+[10/11/2013 11:24:20,208] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed PUBLISH
+[10/11/2013 11:24:21,832] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity ZTE1MjNjN2MxODU5MGM5ZDdkOTYzMDUyODQyNDBlZjk.
+[10/11/2013 11:24:25,458] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request PUBLISH sip:100@localhost SIP/2.0
+Via: SIP/2.0/UDP 192.168.0.105:53824;rport=53824;branch=z9hG4bKPjc5e5f198835344b09d2cc5b4e3fe461f;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=d1c04ca6fd2e41df9102e7e541d49f50
+To: "icivico" <sip:100@localhost>
+Call-ID: af01d5fc3d8c4528b744ab6f4adaf561
+CSeq: 1 PUBLISH
+Event: presence
+Expires: 600
+User-Agent: Blink 0.5.0 (Windows)
+Content-Type: application/pidf+xml
+Content-Length: 1826
+
+<?xml version='1.0' encoding='UTF-8'?>
+<presence xmlns:c="urn:ietf:params:xml:ns:pidf:cipid" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" xmlns:agp-caps="urn:ag-projects:xml:ns:pidf:caps" xmlns:caps="urn:ietf:params:xml:ns:pidf:caps" xmlns:rpid="urn:ietf:params:xml:ns:pidf:rpid" xmlns:agp-pidf="urn:ag-projects:xml:ns:pidf" xmlns="urn:ietf:params:xml:ns:pidf" entity="sip%3A100%40localhost"><tuple id="SID-7502db75-b8ca-4b5c-9c80-b800cc284843"><status><basic>open</basic><agp-pidf:extended>busy</agp-pidf:extended></status><caps:servcaps><caps:audio>true</caps:audio><caps:message>false</caps:message><caps:text>false</caps:text><agp-caps:file-transfer>false</agp-caps:file-transfer><agp-caps:screen-sharing-server>false</agp-caps:screen-sharing-server><agp-caps:screen-sharing-client>false</agp-caps:screen-sharing-client></caps:servcaps><c:display-name>icivico</c:display-name><agp-pidf:device-info id="7502db75-b8ca-4b5c-9c80-b800cc284843"><agp-pidf:description>TUNS-ICIVICO</agp-pidf:description><agp-pidf:user-agent>Blink 0.5.0 (Windows)</agp-pidf:user-agent><agp-pidf:time-offset>60</agp-pidf:time-offset></agp-pidf:device-info><rpid:user-input idle-threshold="600">active</rpid:user-input><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><contact>sip%3A100%40localhost</contact><note>On the phone</note><timestamp>2013-11-10T11:24:14.846000+01:00</timestamp></tuple><dm:person id="PID-000d61a1258cf95b9ad3231be8f1da1d"><rpid:activities><rpid:busy/></rpid:activities><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:person><dm:device id="DID-7502db75-b8ca-4b5c-9c80-b800cc284843"><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><dm:note>Blink 0.5.0 (Windows) at TUNS-ICIVICO</dm:note><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:device></presence>
+[10/11/2013 11:24:25,459] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed PUBLISH
+[10/11/2013 11:24:30,026] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity eff9d0e6ae224307a716d0778ee50b12
+[10/11/2013 11:24:37,634] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request PUBLISH sip:100@localhost SIP/2.0
+Via: SIP/2.0/UDP 192.168.0.105:53824;rport=53824;branch=z9hG4bKPjbed20622dce14909ad08fa318814caf8;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=ad43b33cdcd046cea58c17d29f34f446
+To: "icivico" <sip:100@localhost>
+Call-ID: 4370064413a84deeb960e05898b14bcf
+CSeq: 1 PUBLISH
+Event: presence
+Expires: 600
+User-Agent: Blink 0.5.0 (Windows)
+Content-Type: application/pidf+xml
+Content-Length: 1826
+
+<?xml version='1.0' encoding='UTF-8'?>
+<presence xmlns:c="urn:ietf:params:xml:ns:pidf:cipid" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" xmlns:agp-caps="urn:ag-projects:xml:ns:pidf:caps" xmlns:caps="urn:ietf:params:xml:ns:pidf:caps" xmlns:rpid="urn:ietf:params:xml:ns:pidf:rpid" xmlns:agp-pidf="urn:ag-projects:xml:ns:pidf" xmlns="urn:ietf:params:xml:ns:pidf" entity="sip%3A100%40localhost"><tuple id="SID-7502db75-b8ca-4b5c-9c80-b800cc284843"><status><basic>open</basic><agp-pidf:extended>busy</agp-pidf:extended></status><caps:servcaps><caps:audio>true</caps:audio><caps:message>false</caps:message><caps:text>false</caps:text><agp-caps:file-transfer>false</agp-caps:file-transfer><agp-caps:screen-sharing-server>false</agp-caps:screen-sharing-server><agp-caps:screen-sharing-client>false</agp-caps:screen-sharing-client></caps:servcaps><c:display-name>icivico</c:display-name><agp-pidf:device-info id="7502db75-b8ca-4b5c-9c80-b800cc284843"><agp-pidf:description>TUNS-ICIVICO</agp-pidf:description><agp-pidf:user-agent>Blink 0.5.0 (Windows)</agp-pidf:user-agent><agp-pidf:time-offset>60</agp-pidf:time-offset></agp-pidf:device-info><rpid:user-input idle-threshold="600">active</rpid:user-input><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><contact>sip%3A100%40localhost</contact><note>On the phone</note><timestamp>2013-11-10T11:24:14.846000+01:00</timestamp></tuple><dm:person id="PID-000d61a1258cf95b9ad3231be8f1da1d"><rpid:activities><rpid:busy/></rpid:activities><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:person><dm:device id="DID-7502db75-b8ca-4b5c-9c80-b800cc284843"><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><dm:note>Blink 0.5.0 (Windows) at TUNS-ICIVICO</dm:note><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:device></presence>
+[10/11/2013 11:24:37,634] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed PUBLISH
+[10/11/2013 11:24:44,175] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/UDP 192.168.0.105:53824;rport=53824;branch=z9hG4bKPjb58852ebefba462080b6f538ef191071;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=69c13fffb53044498ee2c38a896416c8
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:53824>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: eff9d0e6ae224307a716d0778ee50b12
+CSeq: 2 REGISTER
+Expires: 0
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:24:44,175] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:24:44,177] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:24:44,186] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:24:44,188] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:24:44,189] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "icivico" <sip:100@localhost>;tag=-7954497681658564103
+Via: SIP/2.0/UDP 192.168.0.105:53824;rport=53824;branch=z9hG4bKPjb58852ebefba462080b6f538ef191071;received=127.0.0.1
+CSeq: 2 REGISTER
+Call-ID: eff9d0e6ae224307a716d0778ee50b12
+From: "icivico" <sip:100@localhost>;tag=69c13fffb53044498ee2c38a896416c8
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:24:44,211] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:100@localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj1e3d478fbefd466d8ea5effd42917b5a;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=7b12be95f17e4d9f8da80ca0f15e1db9
+To: <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>
+Call-ID: 549c5559e65a4a4180d9a06c5b17e047
+CSeq: 17358 SUBSCRIBE
+Event: message-summary
+Expires: 600
+Supported: 100rel,replaces,norefersub,gruu
+Accept: application/simple-message-summary
+Allow-Events: conference,message-summary,dialog,presence,presence.winfo,xcap-diff,dialog.winfo,refer
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:24:44,212] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:24:44,213] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request PUBLISH sip:100@localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPja0e0225c926a4e159584c6d7473949f2;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=8d4e4f4b456944cfb45f275d023fd607
+To: "icivico" <sip:100@localhost>
+Call-ID: ee0d1b38e8b34550a8d45bff1c5193fc
+CSeq: 1 PUBLISH
+Event: presence
+Expires: 600
+User-Agent: Blink 0.5.0 (Windows)
+Content-Type: application/pidf+xml
+Content-Length: 1826
+
+<?xml version='1.0' encoding='UTF-8'?>
+<presence xmlns:c="urn:ietf:params:xml:ns:pidf:cipid" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" xmlns:agp-caps="urn:ag-projects:xml:ns:pidf:caps" xmlns:caps="urn:ietf:params:xml:ns:pidf:caps" xmlns:rpid="urn:ietf:params:xml:ns:pidf:rpid" xmlns:agp-pidf="urn:ag-projects:xml:ns:pidf" xmlns="urn:ietf:params:xml:ns:pidf" entity="sip%3A100%40localhost"><tuple id="SID-7502db75-b8ca-4b5c-9c80-b800cc284843"><status><basic>open</basic><agp-pidf:extended>busy</agp-pidf:extended></status><caps:servcaps><caps:audio>true</caps:audio><caps:message>false</caps:message><caps:text>false</caps:text><agp-caps:file-transfer>false</agp-caps:file-transfer><agp-caps:screen-sharing-server>false</agp-caps:screen-sharing-server><agp-caps:screen-sharing-client>false</agp-caps:screen-sharing-client></caps:servcaps><c:display-name>icivico</c:display-name><agp-pidf:device-info id="7502db75-b8ca-4b5c-9c80-b800cc284843"><agp-pidf:description>TUNS-ICIVICO</agp-pidf:description><agp-pidf:user-agent>Blink 0.5.0 (Windows)</agp-pidf:user-agent><agp-pidf:time-offset>60</agp-pidf:time-offset></agp-pidf:device-info><rpid:user-input idle-threshold="600">active</rpid:user-input><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><contact>sip%3A100%40localhost</contact><note>On the phone</note><timestamp>2013-11-10T11:24:14.846000+01:00</timestamp></tuple><dm:person id="PID-000d61a1258cf95b9ad3231be8f1da1d"><rpid:activities><rpid:busy/></rpid:activities><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:person><dm:device id="DID-7502db75-b8ca-4b5c-9c80-b800cc284843"><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><dm:note>Blink 0.5.0 (Windows) at TUNS-ICIVICO</dm:note><dm:timestamp>2013-11-10T11:24:14.846000+01:00</dm:timestamp></dm:device></presence>
+[10/11/2013 11:24:44,214] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed PUBLISH
+[10/11/2013 11:24:44,215] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj112c4bde109b434d8d0d60edc9c7a9b5;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=1376c575704740e5bd39d8826adbb8cd
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: 702b3533d41841f4bf575e7371963a26
+CSeq: 1 REGISTER
+Expires: 600
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:24:44,215] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:24:44,216] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:24:44,223] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:24:44,224] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:24:44,225] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "icivico" <sip:100@localhost>;tag=3761885380333084171
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj112c4bde109b434d8d0d60edc9c7a9b5;alias;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: 702b3533d41841f4bf575e7371963a26
+From: "icivico" <sip:100@localhost>;tag=1376c575704740e5bd39d8826adbb8cd
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:24:52,203] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj03e1ac99eba441e19f5f69bab93526f9;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=5327985204744af2901f18ff954e34b3
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: 702b3533d41841f4bf575e7371963a26
+CSeq: 2 REGISTER
+Expires: 0
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:24:52,203] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:24:52,204] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:24:52,209] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:24:52,210] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:24:52,210] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "icivico" <sip:100@localhost>;tag=-8322684937715318473
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj03e1ac99eba441e19f5f69bab93526f9;alias;received=127.0.0.1
+CSeq: 2 REGISTER
+Call-ID: 702b3533d41841f4bf575e7371963a26
+From: "icivico" <sip:100@localhost>;tag=5327985204744af2901f18ff954e34b3
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:24:54,643] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj219b965442ee4642af49c878a611e09f;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=a7f90b15103f49778c5ef53544ccfa90
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+CSeq: 1 REGISTER
+Expires: 600
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:24:54,643] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:24:54,644] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:24:54,656] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request PUBLISH sip:100@localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPja65171b0091e40ab8011d72dd3eb1d5f;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=ddff3092217643988ef67082719de036
+To: "icivico" <sip:100@localhost>
+Call-ID: b8aa9135319043a3b5d92e56d5dad2d2
+CSeq: 1 PUBLISH
+Event: presence
+Expires: 600
+User-Agent: Blink 0.5.0 (Windows)
+Content-Type: application/pidf+xml
+Content-Length: 1826
+
+<?xml version='1.0' encoding='UTF-8'?>
+<presence xmlns:c="urn:ietf:params:xml:ns:pidf:cipid" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" xmlns:agp-caps="urn:ag-projects:xml:ns:pidf:caps" xmlns:caps="urn:ietf:params:xml:ns:pidf:caps" xmlns:rpid="urn:ietf:params:xml:ns:pidf:rpid" xmlns:agp-pidf="urn:ag-projects:xml:ns:pidf" xmlns="urn:ietf:params:xml:ns:pidf" entity="sip%3A100%40localhost"><tuple id="SID-7502db75-b8ca-4b5c-9c80-b800cc284843"><status><basic>open</basic><agp-pidf:extended>busy</agp-pidf:extended></status><caps:servcaps><caps:audio>true</caps:audio><caps:message>false</caps:message><caps:text>false</caps:text><agp-caps:file-transfer>false</agp-caps:file-transfer><agp-caps:screen-sharing-server>false</agp-caps:screen-sharing-server><agp-caps:screen-sharing-client>false</agp-caps:screen-sharing-client></caps:servcaps><c:display-name>icivico</c:display-name><agp-pidf:device-info id="7502db75-b8ca-4b5c-9c80-b800cc284843"><agp-pidf:description>TUNS-ICIVICO</agp-pidf:description><agp-pidf:user-agent>Blink 0.5.0 (Windows)</agp-pidf:user-agent><agp-pidf:time-offset>60</agp-pidf:time-offset></agp-pidf:device-info><rpid:user-input idle-threshold="600">active</rpid:user-input><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><contact>sip%3A100%40localhost</contact><note>On the phone</note><timestamp>2013-11-10T11:24:54.596000+01:00</timestamp></tuple><dm:person id="PID-000d61a1258cf95b9ad3231be8f1da1d"><rpid:activities><rpid:busy/></rpid:activities><dm:timestamp>2013-11-10T11:24:54.596000+01:00</dm:timestamp></dm:person><dm:device id="DID-7502db75-b8ca-4b5c-9c80-b800cc284843"><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><dm:note>Blink 0.5.0 (Windows) at TUNS-ICIVICO</dm:note><dm:timestamp>2013-11-10T11:24:54.596000+01:00</dm:timestamp></dm:device></presence>
+[10/11/2013 11:24:54,656] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed PUBLISH
+[10/11/2013 11:24:54,662] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:100@localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj06005783892d4ea8bca5b2f910c83a52;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=66d345ec4ea24dddb57774d3f86d2403
+To: <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>
+Call-ID: d6605c9244fe45b894b0711c036b358e
+CSeq: 23640 SUBSCRIBE
+Event: message-summary
+Expires: 600
+Supported: 100rel,replaces,norefersub,gruu
+Accept: application/simple-message-summary
+Allow-Events: conference,message-summary,dialog,presence,presence.winfo,xcap-diff,dialog.winfo,refer
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:24:54,664] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:24:54,677] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:24:54,678] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:24:54,678] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "icivico" <sip:100@localhost>;tag=3528218187119254446
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj219b965442ee4642af49c878a611e09f;alias;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+From: "icivico" <sip:100@localhost>;tag=a7f90b15103f49778c5ef53544ccfa90
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:24:59,175] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity eff9d0e6ae224307a716d0778ee50b12
+[10/11/2013 11:24:59,216] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity 702b3533d41841f4bf575e7371963a26
+[10/11/2013 11:25:07,204] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity 702b3533d41841f4bf575e7371963a26
+[10/11/2013 11:25:09,643] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity a5c7e4d557814b09b15e43ed32680d86
+[10/11/2013 11:25:24,789] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPjf3bdd923e84a403da042e7a4a3858526;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=1ee9650c9bc040b09f285096e7dd66ce
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+CSeq: 2 REGISTER
+Expires: 600
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:25:24,789] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:25:24,791] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:25:24,798] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:25:24,799] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:25:24,799] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "icivico" <sip:100@localhost>;tag=-6994856895355917990
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPjf3bdd923e84a403da042e7a4a3858526;alias;received=127.0.0.1
+CSeq: 2 REGISTER
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+From: "icivico" <sip:100@localhost>;tag=1ee9650c9bc040b09f285096e7dd66ce
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:25:39,789] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity a5c7e4d557814b09b15e43ed32680d86
+[10/11/2013 11:25:54,581] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request PUBLISH sip:100@localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj9709753a77eb435ebb2395b6efd977c2;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=de5236c879814fcdb750da481d6ca8e3
+To: "icivico" <sip:100@localhost>
+Call-ID: 847bf4e4ad3343c6b325e9ce22a5dfd0
+CSeq: 1 PUBLISH
+Event: presence
+Expires: 600
+User-Agent: Blink 0.5.0 (Windows)
+Content-Type: application/pidf+xml
+Content-Length: 1826
+
+<?xml version='1.0' encoding='UTF-8'?>
+<presence xmlns:c="urn:ietf:params:xml:ns:pidf:cipid" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" xmlns:agp-caps="urn:ag-projects:xml:ns:pidf:caps" xmlns:caps="urn:ietf:params:xml:ns:pidf:caps" xmlns:rpid="urn:ietf:params:xml:ns:pidf:rpid" xmlns:agp-pidf="urn:ag-projects:xml:ns:pidf" xmlns="urn:ietf:params:xml:ns:pidf" entity="sip%3A100%40localhost"><tuple id="SID-7502db75-b8ca-4b5c-9c80-b800cc284843"><status><basic>open</basic><agp-pidf:extended>busy</agp-pidf:extended></status><caps:servcaps><caps:audio>true</caps:audio><caps:message>false</caps:message><caps:text>false</caps:text><agp-caps:file-transfer>false</agp-caps:file-transfer><agp-caps:screen-sharing-server>false</agp-caps:screen-sharing-server><agp-caps:screen-sharing-client>false</agp-caps:screen-sharing-client></caps:servcaps><c:display-name>icivico</c:display-name><agp-pidf:device-info id="7502db75-b8ca-4b5c-9c80-b800cc284843"><agp-pidf:description>TUNS-ICIVICO</agp-pidf:description><agp-pidf:user-agent>Blink 0.5.0 (Windows)</agp-pidf:user-agent><agp-pidf:time-offset>60</agp-pidf:time-offset></agp-pidf:device-info><rpid:user-input idle-threshold="600">active</rpid:user-input><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><contact>sip%3A100%40localhost</contact><note>On the phone</note><timestamp>2013-11-10T11:24:54.596000+01:00</timestamp></tuple><dm:person id="PID-000d61a1258cf95b9ad3231be8f1da1d"><rpid:activities><rpid:busy/></rpid:activities><dm:timestamp>2013-11-10T11:24:54.596000+01:00</dm:timestamp></dm:person><dm:device id="DID-7502db75-b8ca-4b5c-9c80-b800cc284843"><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><dm:note>Blink 0.5.0 (Windows) at TUNS-ICIVICO</dm:note><dm:timestamp>2013-11-10T11:24:54.596000+01:00</dm:timestamp></dm:device></presence>
+[10/11/2013 11:25:54,583] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed PUBLISH
+[10/11/2013 11:25:54,910] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPjc68d0bc4a6384feebfa44285e8f2c351;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=fc0e8359bbad487aaf838f7aa87fff45
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+CSeq: 3 REGISTER
+Expires: 600
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:25:54,912] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:25:54,916] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:25:54,929] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:25:54,931] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:25:54,933] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "icivico" <sip:100@localhost>;tag=5854379356208953392
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPjc68d0bc4a6384feebfa44285e8f2c351;alias;received=127.0.0.1
+CSeq: 3 REGISTER
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+From: "icivico" <sip:100@localhost>;tag=fc0e8359bbad487aaf838f7aa87fff45
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:26:09,914] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity a5c7e4d557814b09b15e43ed32680d86
+[10/11/2013 11:26:25,044] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj961ceaf137dd425184a471c1e1da9795;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=3209893ce1bc410eb3a3af72faf867a8
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+CSeq: 4 REGISTER
+Expires: 600
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:26:25,044] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:26:25,046] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:26:25,057] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:26:25,059] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:26:25,059] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "icivico" <sip:100@localhost>;tag=-5444148762803394198
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj961ceaf137dd425184a471c1e1da9795;alias;received=127.0.0.1
+CSeq: 4 REGISTER
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+From: "icivico" <sip:100@localhost>;tag=3209893ce1bc410eb3a3af72faf867a8
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:26:40,045] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity a5c7e4d557814b09b15e43ed32680d86
+[10/11/2013 11:26:44,471] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request PUBLISH sip:100@localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj4f56d8bcb14544a889919cc33dee3c24;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=bbcc0d2150cf40ad948f4e0ed9e9e1cd
+To: "icivico" <sip:100@localhost>
+Call-ID: b95f2aefa36841899be8ddc04a3899e0
+CSeq: 1 PUBLISH
+Event: presence
+Expires: 600
+User-Agent: Blink 0.5.0 (Windows)
+Content-Type: application/pidf+xml
+Content-Length: 1826
+
+<?xml version='1.0' encoding='UTF-8'?>
+<presence xmlns:c="urn:ietf:params:xml:ns:pidf:cipid" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" xmlns:agp-caps="urn:ag-projects:xml:ns:pidf:caps" xmlns:caps="urn:ietf:params:xml:ns:pidf:caps" xmlns:rpid="urn:ietf:params:xml:ns:pidf:rpid" xmlns:agp-pidf="urn:ag-projects:xml:ns:pidf" xmlns="urn:ietf:params:xml:ns:pidf" entity="sip%3A100%40localhost"><tuple id="SID-7502db75-b8ca-4b5c-9c80-b800cc284843"><status><basic>open</basic><agp-pidf:extended>busy</agp-pidf:extended></status><caps:servcaps><caps:audio>true</caps:audio><caps:message>false</caps:message><caps:text>false</caps:text><agp-caps:file-transfer>false</agp-caps:file-transfer><agp-caps:screen-sharing-server>false</agp-caps:screen-sharing-server><agp-caps:screen-sharing-client>false</agp-caps:screen-sharing-client></caps:servcaps><c:display-name>icivico</c:display-name><agp-pidf:device-info id="7502db75-b8ca-4b5c-9c80-b800cc284843"><agp-pidf:description>TUNS-ICIVICO</agp-pidf:description><agp-pidf:user-agent>Blink 0.5.0 (Windows)</agp-pidf:user-agent><agp-pidf:time-offset>60</agp-pidf:time-offset></agp-pidf:device-info><rpid:user-input idle-threshold="600">active</rpid:user-input><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><contact>sip%3A100%40localhost</contact><note>On the phone</note><timestamp>2013-11-10T11:24:54.596000+01:00</timestamp></tuple><dm:person id="PID-000d61a1258cf95b9ad3231be8f1da1d"><rpid:activities><rpid:busy/></rpid:activities><dm:timestamp>2013-11-10T11:24:54.596000+01:00</dm:timestamp></dm:person><dm:device id="DID-7502db75-b8ca-4b5c-9c80-b800cc284843"><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><dm:note>Blink 0.5.0 (Windows) at TUNS-ICIVICO</dm:note><dm:timestamp>2013-11-10T11:24:54.596000+01:00</dm:timestamp></dm:device></presence>
+[10/11/2013 11:26:44,472] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed PUBLISH
+[10/11/2013 11:26:55,171] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj089c112302a04e2dbf2638ae3bc90330;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=f9a09fcfeb1b40778578a71fd5af083b
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+CSeq: 5 REGISTER
+Expires: 600
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:26:55,172] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:26:55,174] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:26:55,186] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:26:55,187] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:26:55,187] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "icivico" <sip:100@localhost>;tag=1609398415118598976
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj089c112302a04e2dbf2638ae3bc90330;alias;received=127.0.0.1
+CSeq: 5 REGISTER
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+From: "icivico" <sip:100@localhost>;tag=f9a09fcfeb1b40778578a71fd5af083b
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:27:10,173] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity a5c7e4d557814b09b15e43ed32680d86
+[10/11/2013 11:27:21,962] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:100@localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPjed65c80881404a99a074df19eff85b14;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=122ebae663b84e188aab65d3ef41a460
+To: <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>
+Call-ID: 388a283775d54eca9eb2e93c477bb28b
+CSeq: 14108 SUBSCRIBE
+Event: message-summary
+Expires: 600
+Supported: 100rel,replaces,norefersub,gruu
+Accept: application/simple-message-summary
+Allow-Events: conference,message-summary,dialog,presence,presence.winfo,xcap-diff,dialog.winfo,refer
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:27:21,964] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:27:25,218] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj6682af5f626948f7a4a06791a575c410;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=6132472117284ad7b89f539520ce6529
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+CSeq: 6 REGISTER
+Expires: 600
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:27:25,219] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:27:25,222] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded REGISTER
+[10/11/2013 11:27:25,248] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:27:25,254] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:27:25,254] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "icivico" <sip:100@localhost>;tag=-946692189028821338
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj6682af5f626948f7a4a06791a575c410;alias;received=127.0.0.1
+CSeq: 6 REGISTER
+Call-ID: a5c7e4d557814b09b15e43ed32680d86
+From: "icivico" <sip:100@localhost>;tag=6132472117284ad7b89f539520ce6529
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:27:34,896] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request PUBLISH sip:100@localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62511;rport=62511;branch=z9hG4bKPj8dd5728bf60247f89ef17341c9bf6016;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=22a792e1e4aa48228449d38cba68793c
+To: "icivico" <sip:100@localhost>
+Call-ID: a5be74515ddf41d8a16c111263b6b61f
+CSeq: 1 PUBLISH
+Event: presence
+Expires: 600
+User-Agent: Blink 0.5.0 (Windows)
+Content-Type: application/pidf+xml
+Content-Length: 1826
+
+<?xml version='1.0' encoding='UTF-8'?>
+<presence xmlns:c="urn:ietf:params:xml:ns:pidf:cipid" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" xmlns:agp-caps="urn:ag-projects:xml:ns:pidf:caps" xmlns:caps="urn:ietf:params:xml:ns:pidf:caps" xmlns:rpid="urn:ietf:params:xml:ns:pidf:rpid" xmlns:agp-pidf="urn:ag-projects:xml:ns:pidf" xmlns="urn:ietf:params:xml:ns:pidf" entity="sip%3A100%40localhost"><tuple id="SID-7502db75-b8ca-4b5c-9c80-b800cc284843"><status><basic>open</basic><agp-pidf:extended>busy</agp-pidf:extended></status><caps:servcaps><caps:audio>true</caps:audio><caps:message>false</caps:message><caps:text>false</caps:text><agp-caps:file-transfer>false</agp-caps:file-transfer><agp-caps:screen-sharing-server>false</agp-caps:screen-sharing-server><agp-caps:screen-sharing-client>false</agp-caps:screen-sharing-client></caps:servcaps><c:display-name>icivico</c:display-name><agp-pidf:device-info id="7502db75-b8ca-4b5c-9c80-b800cc284843"><agp-pidf:description>TUNS-ICIVICO</agp-pidf:description><agp-pidf:user-agent>Blink 0.5.0 (Windows)</agp-pidf:user-agent><agp-pidf:time-offset>60</agp-pidf:time-offset></agp-pidf:device-info><rpid:user-input idle-threshold="600">active</rpid:user-input><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><contact>sip%3A100%40localhost</contact><note>On the phone</note><timestamp>2013-11-10T11:24:54.596000+01:00</timestamp></tuple><dm:person id="PID-000d61a1258cf95b9ad3231be8f1da1d"><rpid:activities><rpid:busy/></rpid:activities><dm:timestamp>2013-11-10T11:24:54.596000+01:00</dm:timestamp></dm:person><dm:device id="DID-7502db75-b8ca-4b5c-9c80-b800cc284843"><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><dm:note>Blink 0.5.0 (Windows) at TUNS-ICIVICO</dm:note><dm:timestamp>2013-11-10T11:24:54.596000+01:00</dm:timestamp></dm:device></presence>
+[10/11/2013 11:27:34,896] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed PUBLISH
+[10/11/2013 11:27:40,220] INFO  com.iccapps.sip.frontend.Frontend - Evicted affinity a5c7e4d557814b09b15e43ed32680d86
+[10/11/2013 11:27:51,466] INFO  com.iccapps.sip.frontend.Frontend - Stopping sip endpoint
+[10/11/2013 11:28:02,305] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:28:02,358] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:28:02,874] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/TCP 192.168.0.105:62554;rport=62554;branch=z9hG4bKPjda9162f149dd45e9aa199ff44092a693;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=afd62f0eeb754f97b7a1b31a5b2e141e
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: 87bbade63cc6404aa9ab1a30d5f03ce5
+CSeq: 1 REGISTER
+Expires: 600
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:28:02,875] DEBUG com.iccapps.sip.frontend.Frontend - No active node available: 0
+[10/11/2013 11:28:02,875] DEBUG com.iccapps.sip.frontend.Frontend - No node available for request
+[10/11/2013 11:28:03,009] INFO  com.iccapps.sip.frontend.Frontend - SIP node added: sip:127.0.0.1:5070
+[10/11/2013 11:28:16,430] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request REGISTER sip:localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62554;rport=62554;branch=z9hG4bKPj62da96f94bca4c4f837de2339986c82c;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=2c263051da6f4bf6b70ae156115cbd19
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: a31743c5ca3e44d095bdf038ee73123c
+CSeq: 1 REGISTER
+Expires: 600
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:28:16,432] DEBUG com.iccapps.sip.frontend.Frontend - Forward initial request to sip:127.0.0.1:5070
+[10/11/2013 11:28:16,451] DEBUG com.iccapps.sip.frontend.Frontend - Forwarded
+REGISTER sip:127.0.0.1:5070 SIP/2.0
+Via: SIP/2.0/UDP 127.0.0.1:5080;branch=B91EE5DA989BF35653C8C19B8E1BB125,SIP/2.0/TCP 127.0.0.1:62554;rport=62554;branch=z9hG4bKPj62da96f94bca4c4f837de2339986c82c;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=2c263051da6f4bf6b70ae156115cbd19
+To: "icivico" <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>;+sip.instance="<urn:uuid:7502db75-b8ca-4b5c-9c80-b800cc284843>"
+Call-ID: a31743c5ca3e44d095bdf038ee73123c
+CSeq: 1 REGISTER
+Expires: 600
+Supported: gruu
+User-Agent: Blink 0.5.0 (Windows)
+Record-Route: <sip:127.0.0.1:5080;lr>
+Content-Length: 0
+
+
+[10/11/2013 11:28:16,453] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request PUBLISH sip:100@localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62554;rport=62554;branch=z9hG4bKPj967417b09bcf4709ad520af4084afe82;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=9d77b91e77d949d987dd73e04f7bce22
+To: "icivico" <sip:100@localhost>
+Call-ID: 7f9dcfee4ca04bd389aadaa713375cac
+CSeq: 1 PUBLISH
+Event: presence
+Expires: 600
+User-Agent: Blink 0.5.0 (Windows)
+Content-Type: application/pidf+xml
+Content-Length: 1826
+
+<?xml version='1.0' encoding='UTF-8'?>
+<presence xmlns:c="urn:ietf:params:xml:ns:pidf:cipid" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" xmlns:agp-caps="urn:ag-projects:xml:ns:pidf:caps" xmlns:caps="urn:ietf:params:xml:ns:pidf:caps" xmlns:rpid="urn:ietf:params:xml:ns:pidf:rpid" xmlns:agp-pidf="urn:ag-projects:xml:ns:pidf" xmlns="urn:ietf:params:xml:ns:pidf" entity="sip%3A100%40localhost"><tuple id="SID-7502db75-b8ca-4b5c-9c80-b800cc284843"><status><basic>open</basic><agp-pidf:extended>busy</agp-pidf:extended></status><caps:servcaps><caps:audio>true</caps:audio><caps:message>false</caps:message><caps:text>false</caps:text><agp-caps:file-transfer>false</agp-caps:file-transfer><agp-caps:screen-sharing-server>false</agp-caps:screen-sharing-server><agp-caps:screen-sharing-client>false</agp-caps:screen-sharing-client></caps:servcaps><c:display-name>icivico</c:display-name><agp-pidf:device-info id="7502db75-b8ca-4b5c-9c80-b800cc284843"><agp-pidf:description>TUNS-ICIVICO</agp-pidf:description><agp-pidf:user-agent>Blink 0.5.0 (Windows)</agp-pidf:user-agent><agp-pidf:time-offset>60</agp-pidf:time-offset></agp-pidf:device-info><rpid:user-input idle-threshold="600">active</rpid:user-input><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><contact>sip%3A100%40localhost</contact><note>On the phone</note><timestamp>2013-11-10T11:28:16.371000+01:00</timestamp></tuple><dm:person id="PID-000d61a1258cf95b9ad3231be8f1da1d"><rpid:activities><rpid:busy/></rpid:activities><dm:timestamp>2013-11-10T11:28:16.371000+01:00</dm:timestamp></dm:person><dm:device id="DID-7502db75-b8ca-4b5c-9c80-b800cc284843"><dm:deviceID>7502db75-b8ca-4b5c-9c80-b800cc284843</dm:deviceID><dm:note>Blink 0.5.0 (Windows) at TUNS-ICIVICO</dm:note><dm:timestamp>2013-11-10T11:28:16.371000+01:00</dm:timestamp></dm:device></presence>
+[10/11/2013 11:28:16,454] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed PUBLISH
+[10/11/2013 11:28:16,459] DEBUG com.iccapps.sip.frontend.Frontend - Forwarding request SUBSCRIBE sip:100@localhost SIP/2.0
+Via: SIP/2.0/TCP 127.0.0.1:62554;rport=62554;branch=z9hG4bKPj1ec951838024490aa777470b2ac504cc;alias;received=127.0.0.1
+Max-Forwards: 70
+From: "icivico" <sip:100@localhost>;tag=1ac5c8d68f73497bb383582819e0e040
+To: <sip:100@localhost>
+Contact: <sip:54791382@127.0.0.1:62476;transport=tcp>
+Call-ID: fc7543868dc841b3ab2de0551fc000e4
+CSeq: 2958 SUBSCRIBE
+Event: message-summary
+Expires: 600
+Supported: 100rel,replaces,norefersub,gruu
+Accept: application/simple-message-summary
+Allow-Events: conference,message-summary,dialog,presence,presence.winfo,xcap-diff,dialog.winfo,refer
+User-Agent: Blink 0.5.0 (Windows)
+Content-Length: 0
+
+
+[10/11/2013 11:28:16,460] DEBUG com.iccapps.sip.frontend.Frontend - Initial request method not allowed SUBSCRIBE
+[10/11/2013 11:28:16,466] TRACE com.iccapps.sip.frontend.Frontend - Top Via header matches proxy. Removing first Via header.
+[10/11/2013 11:28:16,467] DEBUG com.iccapps.sip.frontend.Frontend - Response forwarded statelessly 200
+[10/11/2013 11:28:16,467] TRACE com.iccapps.sip.frontend.Frontend - 
+SIP/2.0 200 OK
+To: "icivico" <sip:100@localhost>;tag=7529392426854903548
+Via: SIP/2.0/TCP 127.0.0.1:62554;rport=62554;branch=z9hG4bKPj62da96f94bca4c4f837de2339986c82c;alias;received=127.0.0.1
+CSeq: 1 REGISTER
+Call-ID: a31743c5ca3e44d095bdf038ee73123c
+From: "icivico" <sip:100@localhost>;tag=2c263051da6f4bf6b70ae156115cbd19
+Expires: 60
+Content-Length: 0
+
+
+[10/11/2013 11:28:19,732] INFO  com.iccapps.sip.frontend.Frontend - Stopping sip endpoint
+[10/11/2013 11:31:09,707] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:31:09,760] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:31:58,119] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:31:58,174] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:32:40,186] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:32:40,241] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:33:48,153] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:33:48,215] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:36:46,261] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:36:46,315] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:37:28,394] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:37:29,048] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:37:29,179] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:37:29,310] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:37:41,269] INFO  com.iccapps.sip.frontend.Frontend - Stopping sip endpoint
+[10/11/2013 11:40:10,371] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:40:10,426] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:40:17,044] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:40:35,722] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:41:11,159] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:41:12,996] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:41:18,860] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:43:13,293] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:43:13,351] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:43:28,180] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:43:32,114] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:44:00,736] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:44:01,366] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:44:09,717] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:44:20,359] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:44:20,413] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:44:38,187] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:45:07,640] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:45:07,696] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:45:23,417] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:45:49,338] ERROR SIP Cluster Frontend - Problem Accepting Connection
+java.io.IOException: no cipher suites in common
+	at gov.nist.javax.sip.stack.TLSMessageChannel.<init>(TLSMessageChannel.java:132)
+	at gov.nist.javax.sip.stack.TLSMessageProcessor.run(TLSMessageProcessor.java:168)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:54:59,949] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 11:54:59,998] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 11:55:00,006] WARN  SIP Cluster Frontend - Using default keystore type jks
+[10/11/2013 11:55:00,006] WARN  SIP Cluster Frontend - TLS settings will be inactive - TLS key store can not be configured. keyStoreType=jks javax.net.ssl.keyStore=null javax.net.ssl.keyStorePassword=null
+[10/11/2013 11:55:00,408] ERROR SIP Cluster Frontend - A problem occured while Accepting connection
+javax.net.ssl.SSLHandshakeException: no cipher suites in common
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.ServerHandshaker.chooseCipherSuite(Unknown Source)
+	at sun.security.ssl.ServerHandshaker.clientHello(Unknown Source)
+	at sun.security.ssl.ServerHandshaker.processMessage(Unknown Source)
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source)
+	at sun.security.ssl.Handshaker.process_record(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+	at gov.nist.javax.sip.stack.TLSMessageChannel.run(TLSMessageChannel.java:524)
+	at java.lang.Thread.run(Unknown Source)
+[10/11/2013 11:55:02,360] INFO  com.iccapps.sip.frontend.Frontend - SIP node added: sip:127.0.0.1:5070
+[10/11/2013 12:13:20,263] INFO  com.iccapps.sip.frontend.Frontend - Starting sip frontend
+[10/11/2013 12:13:20,312] WARN  SIP Cluster Frontend - using default tls security policy
+[10/11/2013 12:13:20,318] WARN  SIP Cluster Frontend - Using default keystore type jks
+[10/11/2013 12:13:20,319] WARN  SIP Cluster Frontend - TLS settings will be inactive - TLS key store can not be configured. keyStoreType=jks javax.net.ssl.keyStore=null javax.net.ssl.keyStorePassword=null
+[10/11/2013 12:13:23,494] INFO  com.iccapps.sip.frontend.Frontend - SIP node added: sip:127.0.0.1:5070
+[10/11/2013 12:13:34,610] INFO  com.iccapps.sip.frontend.Frontend - Stopping sip endpoint

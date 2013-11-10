@@ -90,6 +90,8 @@ public class Frontend implements SipListener {
 	protected MessageFactory messageFactory;
 	protected SipProvider sipProvider;
 	protected ListeningPoint udp;
+	protected ListeningPoint tcp;
+	protected ListeningPoint tls;
 	protected Map<String, NodeInfo> activeNodes = new HashMap<String, NodeInfo>();
 	protected Map<String, Affinity> affinities = new HashMap<String, Affinity>();
 	protected String lastNodeSelected;
@@ -197,6 +199,14 @@ public class Frontend implements SipListener {
 		return instance;
 	}
 	
+	/**
+	 * SIP Frontend implementation
+	 * Configuration keys:
+	 * - frontend.ip: ip to bind sip stack
+	 * - frontend.udpport: udp enabling and listening port
+	 * - frontend.tcpport: tcp enabling and listening port
+	 * - frontend.tlsport: tls enabling and listening port (you'll need to provide keystore to jvm)
+	 */
 	private Frontend() { }
 	
 	public void start() throws FileNotFoundException, IOException, NumberFormatException, 
@@ -218,12 +228,34 @@ public class Frontend implements SipListener {
 		messageFactory = sipFactory.createMessageFactory();
 		
 		
-		String port = config.getProperty("frontend.port", "5060");
+		String udpport = config.getProperty("frontend.udpport");
+		String tcpport = config.getProperty("frontend.tcpport");
+		String tlsport = config.getProperty("frontend.tlsport");
 		String ip = config.getProperty("frontend.ip", "127.0.0.1");
 		
-		udp = sipStack.createListeningPoint(ip, Integer.parseInt(port), "udp");
-		sipProvider = sipStack.createSipProvider(udp);
+		// create provider
+		if (udpport != null)
+			udp = sipStack.createListeningPoint(ip, Integer.parseInt(udpport), ListeningPoint.UDP);
+		if (tcpport != null)
+			tcp = sipStack.createListeningPoint(ip, Integer.parseInt(tcpport), ListeningPoint.TCP);
+		if (tlsport != null)
+			tls = sipStack.createListeningPoint(ip, Integer.parseInt(tlsport), ListeningPoint.TLS);
+		if (udp != null)
+			sipProvider = sipStack.createSipProvider(udp);
+		if (tcp != null) {
+			if (sipProvider != null) 
+				sipStack.createSipProvider(tcp);
+			else
+				sipProvider.addListeningPoint(tcp);
+		}
+		if (tls != null) {
+			if (sipProvider != null) 
+				sipStack.createSipProvider(tls);
+			else
+				sipProvider.addListeningPoint(tls);
+		}
 		sipProvider.addSipListener(this);
+		// finally, start sip stack
 		sipStack.start();
 	}
 	
@@ -729,7 +761,7 @@ public class Frontend implements SipListener {
 		// 10. Forward the new request
 		try {
 			sipProvider.sendRequest(req);
-			logger.debug("Forwarded " + req.getMethod());
+			logger.debug("Forwarded\n" + req);
 			
 		} catch (SipException e) {
 			e.printStackTrace();
