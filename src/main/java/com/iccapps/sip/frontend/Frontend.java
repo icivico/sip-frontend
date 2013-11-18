@@ -19,8 +19,10 @@
     	
 package com.iccapps.sip.frontend;
 
+import gov.nist.javax.sip.ListeningPointExt;
 import gov.nist.javax.sip.header.Contact;
 import gov.nist.javax.sip.header.Route;
+import gov.nist.javax.sip.stack.NioMessageProcessorFactory;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -63,6 +65,7 @@ import javax.sip.header.ContactHeader;
 import javax.sip.header.FromHeader;
 import javax.sip.header.Header;
 import javax.sip.header.HeaderFactory;
+import javax.sip.header.MaxForwardsHeader;
 import javax.sip.header.RecordRouteHeader;
 import javax.sip.header.RouteHeader;
 import javax.sip.header.ToHeader;
@@ -92,6 +95,8 @@ public class Frontend implements SipListener {
 	protected ListeningPoint udp;
 	protected ListeningPoint tcp;
 	protected ListeningPoint tls;
+	protected ListeningPoint ws;
+	protected ListeningPoint wss;
 	protected Map<String, NodeInfo> activeNodes = new HashMap<String, NodeInfo>();
 	protected Map<String, Affinity> affinities = new HashMap<String, Affinity>();
 	protected String lastNodeSelected;
@@ -217,16 +222,22 @@ public class Frontend implements SipListener {
 		sipFactory = SipFactory.getInstance();
 		sipFactory.setPathName("gov.nist");
 		
-		String udpport = config.getProperty("frontend.udpport");
-		String tcpport = config.getProperty("frontend.tcpport");
-		String tlsport = config.getProperty("frontend.tlsport");
-		String ip = config.getProperty("frontend.ip", "127.0.0.1");
+		String udpport = config.getProperty("bind.port.udp");
+		String tcpport = config.getProperty("bind.port.tcp");
+		String tlsport = config.getProperty("bind.port.tls");
+		String wsport = config.getProperty("bind.port.ws");
+		String wssport = config.getProperty("bind.port.wss");
+		String ip = config.getProperty("bind.ip");
 		
 		Properties properties = new Properties();
 		properties.setProperty("javax.sip.STACK_NAME","SIP Cluster Frontend");
 		properties.setProperty("javax.sip.AUTOMATIC_DIALOG_SUPPORT", "off");
 		if (tlsport != null)
 			properties.setProperty("gov.nist.javax.sip.TLS_CLIENT_AUTH_TYPE", "Disabled");
+		properties.setProperty("gov.nist.javax.sip.MESSAGE_PROCESSOR_FACTORY", NioMessageProcessorFactory.class.getName());
+		properties.setProperty("gov.nist.javax.sip.TRACE_LEVEL", "5");
+		//properties.setProperty("gov.nist.javax.sip.DEBUG_LOG", "logs/debug.txt");
+		//properties.setProperty("gov.nist.javax.sip.SERVER_LOG", "logs/log.xml");
 		
 		sipStack = sipFactory.createSipStack(properties);
 		headerFactory = sipFactory.createHeaderFactory();
@@ -240,6 +251,10 @@ public class Frontend implements SipListener {
 			tcp = sipStack.createListeningPoint(ip, Integer.parseInt(tcpport), ListeningPoint.TCP);
 		if (tlsport != null)
 			tls = sipStack.createListeningPoint(ip, Integer.parseInt(tlsport), ListeningPoint.TLS);
+		if (wsport != null)
+			ws = sipStack.createListeningPoint(ip, Integer.parseInt(wsport), ListeningPointExt.WS);
+		if (wssport != null)
+			wss = sipStack.createListeningPoint(ip, Integer.parseInt(wssport), ListeningPointExt.WSS);
 		if (udp != null)
 			sipProvider = sipStack.createSipProvider(udp);
 		if (tcp != null) {
@@ -254,8 +269,20 @@ public class Frontend implements SipListener {
 			else
 				sipProvider.addListeningPoint(tls);
 		}
+		if (ws != null) {
+			if (sipProvider == null) 
+				sipProvider = sipStack.createSipProvider(ws);
+			else
+				sipProvider.addListeningPoint(ws);
+		}
+		if (wss != null) {
+			if (sipProvider == null) 
+				sipProvider = sipStack.createSipProvider(wss);
+			else
+				sipProvider.addListeningPoint(wss);
+		}
 		sipProvider.addSipListener(this);
-		// finally, start sip stack
+		// start sip stack
 		sipStack.start();
 	}
 	
@@ -372,16 +399,14 @@ public class Frontend implements SipListener {
 				}
     		}
 
-            if ( udp.getIPAddress().equals(viaHost) && viaPort == udp.getPort() )
-            {
+            if (udp.getIPAddress().equals(viaHost) && viaPort == udp.getPort()) {
                 if (logger.isTraceEnabled())
                     logger.trace("Top Via header matches proxy. Removing first Via header.");
 
                 res.removeFirst(ViaHeader.NAME);
 
                 viaList = res.getHeaders(ViaHeader.NAME);
-                if (viaList.hasNext())
-                {
+                if (viaList.hasNext()) {
                     try {
 						sipProvider.sendResponse(res);
 						
@@ -423,6 +448,7 @@ public class Frontend implements SipListener {
 		if (isInitial(req)) {
 			NodeInfo node = findNode(via.getHost(), via.getPort());
 			if (node != null) {
+				processDialogAffinity(callid.getCallId(), via.getHost(), ""+via.getPort());
 				forwardOutboundInitial(req);
 			} else {
 				forwardInboundInitial(req);
@@ -431,7 +457,6 @@ public class Frontend implements SipListener {
 		} else {
 			// find or create affinity
 			NodeInfo node = processDialogAffinity(callid.getCallId(), via.getHost(), ""+via.getPort());
-			
 			if (node == null) {
 				logger.error("Node or affinity for request not found");
 				//sendInternalServerError(req, "Affinity not found");
@@ -533,77 +558,82 @@ public class Frontend implements SipListener {
 		String callid = ((CallIdHeader)req.getHeader(CallIdHeader.NAME)).getCallId();
 		logger.debug("Forwarding outbound " + callid);
 	
-		// select node
-		NodeInfo node = selectActiveNode();
-		if (node != null) {
-			logger.debug("Forward initial request to " + node.getUri());
-			
-			// create affinity
-			Affinity a = new Affinity(callid, node.getUri());
-			affinities.put(callid, a);
-			// 16.6 Request Forwarding
-			// 1.  Make a copy of the received request
-			Request clonedReq = (Request) req.clone();
-			// 2.  Update the Request-URI
-			@SuppressWarnings("rawtypes")
-			ListIterator routes = clonedReq.getHeaders(RouteHeader.NAME);
-			if (routes != null && routes.hasNext()) {
-				RouteHeader route = (RouteHeader)routes.next();
-				if ( ((SipURI)route.getAddress().getURI()).hasLrParam()) {
-					/* If the route set is not empty, and the first URI in the route set
-					   contains the lr parameter (see Section 19.1.1), the UAC MUST place
-					   the remote target URI into the Request-URI and MUST include a Route
-					   header field containing the route set values in order, including all
-					   parameters.*/
-					clonedReq.removeFirst(RouteHeader.NAME);
-					
-				} else {
-					/* If the route set is not empty, and its first URI does not contain the
-					   lr parameter, the UAC MUST place the first URI from the route set
-					   into the Request-URI, stripping any parameters that are not allowed
-					   in a Request-URI.  The UAC MUST add a Route header field containing
-					   the remainder of the route set values in order, including all
-					   parameters.  The UAC MUST then place the remote target URI into the
-					   Route header field as the last value.*/
-				}
+		// 16.6 Request Forwarding
+		// 1.  Make a copy of the received request
+		Request clonedReq = (Request) req.clone();
+		// 2.  Update the Request-URI
+		@SuppressWarnings("rawtypes")
+		ListIterator routes = clonedReq.getHeaders(RouteHeader.NAME);
+		if (routes != null && routes.hasNext()) {
+			RouteHeader route = (RouteHeader)routes.next();
+			if ( ((SipURI)route.getAddress().getURI()).hasLrParam()) {
+				/* If the route set is not empty, and the first URI in the route set
+				   contains the lr parameter (see Section 19.1.1), the UAC MUST place
+				   the remote target URI into the Request-URI and MUST include a Route
+				   header field containing the route set values in order, including all
+				   parameters.*/
+				clonedReq.removeFirst(RouteHeader.NAME);
 				
 			} else {
-				/* If the route set is empty, the UAC MUST place the remote target URI
-				   into the Request-URI.  The UAC MUST NOT add a Route header field to
-				   the request.*/
+				/* If the route set is not empty, and its first URI does not contain the
+				   lr parameter, the UAC MUST place the first URI from the route set
+				   into the Request-URI, stripping any parameters that are not allowed
+				   in a Request-URI.  The UAC MUST add a Route header field containing
+				   the remainder of the route set values in order, including all
+				   parameters.  The UAC MUST then place the remote target URI into the
+				   Route header field as the last value.*/
 			}
-			
-			// 3.  Update the Max-Forwards header field
-			
-			// 4.  Optionally add a Record-route header field value
-			SipURI sipURI;
-			try {
-				sipURI = addressFactory.createSipURI(null, udp.getIPAddress());
-				sipURI.setPort(udp.getPort());
-				sipURI.setLrParam();
-		        Address address = addressFactory.createAddress(null, sipURI);
-		        RecordRouteHeader recordRouteHeader = headerFactory.createRecordRouteHeader(address);
-		        clonedReq.addFirst(recordRouteHeader);
-		        
-			} catch (ParseException e) {
-				e.printStackTrace();
-				sendInternalServerError(req, "Could not create record-route");
-			} catch (NullPointerException e) {
-				e.printStackTrace();
-				sendInternalServerError(req, "Could not create record-route");
-			} catch (SipException e) {
-				e.printStackTrace();
-				sendInternalServerError(req, "Could not create record-route");
-			}
-			// 5.  Optionally add additional header fields
-			// 6.  Postprocess routing information
-	        // 7.  Determine the next-hop address, port, and transport
-			sendRequest(clonedReq);
 			
 		} else {
-			logger.error("No available node");
-			sendInternalServerError(req, "No available node");
+			/* If the route set is empty, the UAC MUST place the remote target URI
+			   into the Request-URI.  The UAC MUST NOT add a Route header field to
+			   the request.*/
 		}
+		
+		// 3.  Update the Max-Forwards header field
+		MaxForwardsHeader maxFwdHeader = (MaxForwardsHeader)clonedReq.getHeader(MaxForwardsHeader.NAME);
+		if (maxFwdHeader == null) {
+			try {
+				maxFwdHeader = headerFactory.createMaxForwardsHeader(70);
+				clonedReq.setHeader(maxFwdHeader);
+				
+			} catch (InvalidArgumentException e) {
+				e.printStackTrace();
+			}
+		} else {
+			try {
+				int mf = maxFwdHeader.getMaxForwards() - 1;
+				maxFwdHeader.setMaxForwards(mf);
+				
+			} catch (InvalidArgumentException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// 4.  Optionally add a Record-route header field value
+		SipURI sipURI;
+		try {
+			sipURI = addressFactory.createSipURI(null, udp.getIPAddress());
+			sipURI.setPort(udp.getPort());
+			sipURI.setLrParam();
+	        Address address = addressFactory.createAddress(null, sipURI);
+	        RecordRouteHeader recordRouteHeader = headerFactory.createRecordRouteHeader(address);
+	        clonedReq.addFirst(recordRouteHeader);
+	        
+		} catch (ParseException e) {
+			e.printStackTrace();
+			sendInternalServerError(req, "Could not create record-route");
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+			sendInternalServerError(req, "Could not create record-route");
+		} catch (SipException e) {
+			e.printStackTrace();
+			sendInternalServerError(req, "Could not create record-route");
+		}
+		// 5.  Optionally add additional header fields
+		// 6.  Postprocess routing information
+        // 7.  Determine the next-hop address, port, and transport
+		sendRequest(clonedReq);
 	}
 	
 	/**
@@ -671,6 +701,24 @@ public class Frontend implements SipListener {
 		}
 		
 		// 3.  Update the Max-Forwards header field
+		MaxForwardsHeader maxFwdHeader = (MaxForwardsHeader)clonedReq.getHeader(MaxForwardsHeader.NAME);
+		if (maxFwdHeader == null) {
+			try {
+				maxFwdHeader = headerFactory.createMaxForwardsHeader(70);
+				clonedReq.setHeader(maxFwdHeader);
+				
+			} catch (InvalidArgumentException e) {
+				e.printStackTrace();
+			}
+		} else {
+			try {
+				int mf = maxFwdHeader.getMaxForwards() - 1;
+				maxFwdHeader.setMaxForwards(mf);
+				
+			} catch (InvalidArgumentException e) {
+				e.printStackTrace();
+			}
+		}
 		// 4.  Optionally add a Record-route header field value
 		// 5.  Optionally add additional header fields
 		// 6.  Postprocess routing information
@@ -895,9 +943,6 @@ public class Frontend implements SipListener {
 	private NodeInfo processDialogAffinity(String callid, String viaHost, String viaPort) {
 		NodeInfo node = null;
 		try {
-			// update affinity
-			//String callid = ((CallIdHeader)req.getHeader(CallIdHeader.NAME)).getCallId();
-			//ViaHeader via = (ViaHeader)req.getHeader(ViaHeader.NAME);
 			String uri = "sip:"+viaHost+":"+viaPort;
 			Affinity a = affinities.get(callid);
 			node = activeNodes.get(uri);
