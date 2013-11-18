@@ -603,7 +603,13 @@ public class Frontend implements SipListener {
 		} else {
 			try {
 				int mf = maxFwdHeader.getMaxForwards() - 1;
-				maxFwdHeader.setMaxForwards(mf);
+				if (mf <= 0) {
+					sendResponse(Response.TOO_MANY_HOPS, req, null);
+					return;
+					
+				} else {
+					maxFwdHeader.setMaxForwards(mf);
+				}
 				
 			} catch (InvalidArgumentException e) {
 				e.printStackTrace();
@@ -713,7 +719,13 @@ public class Frontend implements SipListener {
 		} else {
 			try {
 				int mf = maxFwdHeader.getMaxForwards() - 1;
-				maxFwdHeader.setMaxForwards(mf);
+				if (mf <= 0) {
+					sendResponse(Response.TOO_MANY_HOPS, req, null);
+					return;
+					
+				} else {
+					maxFwdHeader.setMaxForwards(mf);
+				}
 				
 			} catch (InvalidArgumentException e) {
 				e.printStackTrace();
@@ -986,6 +998,27 @@ public class Frontend implements SipListener {
 			Response res = messageFactory.createResponse(Response.SERVER_INTERNAL_ERROR, req);
 			res.setReasonPhrase(message);
 			((ToHeader)res.getHeader(ToHeader.NAME)).setTag(""+rnd.nextLong());
+			
+			sipProvider.sendResponse(res);
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		} catch (TransactionAlreadyExistsException e) {
+			e.printStackTrace();
+		} catch (TransactionUnavailableException e) {
+			e.printStackTrace();
+		} catch (SipException e) {
+			e.printStackTrace();
+		} 
+	}
+	
+	private void sendResponse(int responseCode, Request req, String message) {
+		try {
+			Response res = messageFactory.createResponse(responseCode, req);
+			if (message != null)
+				res.setReasonPhrase(message);
+			if(((ToHeader)res.getHeader(ToHeader.NAME)).getTag() == null)
+				((ToHeader)res.getHeader(ToHeader.NAME)).setTag(""+rnd.nextLong());
 			
 			sipProvider.sendResponse(res);
 			
