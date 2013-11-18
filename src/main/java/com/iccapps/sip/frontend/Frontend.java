@@ -496,6 +496,7 @@ public class Frontend implements SipListener {
 				req.getMethod().equals(Request.CANCEL) ||
 				req.getMethod().equals(Request.REGISTER) ||
 				req.getMethod().equals(Request.SUBSCRIBE) ||
+				req.getMethod().equals(Request.PUBLISH) ||
 				req.getMethod().equals(Request.OPTIONS)) {
 			
 			String callid = ((CallIdHeader)req.getHeader(CallIdHeader.NAME)).getCallId();
