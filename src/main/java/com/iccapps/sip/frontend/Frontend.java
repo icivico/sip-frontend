@@ -523,8 +523,12 @@ public class Frontend implements SipListener {
 			        RecordRouteHeader recordRouteHeader = headerFactory.createRecordRouteHeader(address);
 			        clonedReq.addFirst(recordRouteHeader);
 			        
-					// set requestUri to node
-			        clonedReq.setRequestURI(addressFactory.createURI(node.getUri()));
+			        // set requestUri to node
+			        clonedReq.removeHeader(RouteHeader.NAME);
+			        Address routeAddr = addressFactory.createAddress(node.getUri());
+			        ((SipURI)routeAddr.getURI()).setLrParam();
+			        RouteHeader route = headerFactory.createRouteHeader(routeAddr);
+			        clonedReq.addHeader(route);
 			        
 			        // forward
 			        sendRequest(clonedReq);
@@ -657,8 +661,12 @@ public class Frontend implements SipListener {
 			// clone request
 			Request clonedReq = (Request) req.clone();
 			
-			clonedReq.setRequestURI(addressFactory.createURI(node.getUri()));
-			clonedReq.removeHeader(RouteHeader.NAME);
+			// set requestUri to node
+	        clonedReq.removeHeader(RouteHeader.NAME);
+	        Address routeAddr = addressFactory.createAddress(node.getUri());
+	        ((SipURI)routeAddr.getURI()).setLrParam();
+	        RouteHeader route = headerFactory.createRouteHeader(routeAddr);
+	        clonedReq.addHeader(route);
 			
 			sendRequest(clonedReq);
 				
