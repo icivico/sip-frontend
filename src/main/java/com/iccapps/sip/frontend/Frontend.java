@@ -1,6 +1,6 @@
 /* sip-frontend - a simple sip balancer and stateless proxy for sip clusters. 
 
-    Copyright (C) 2013-2014 IÃ±aki CÃ­vico Campos.
+    Copyright (C) 2013-2014 Iñaki Cívico Campos.
 
     This file is part of sip-frontend.
 
@@ -20,6 +20,7 @@
 package com.iccapps.sip.frontend;
 
 import gov.nist.javax.sip.ListeningPointExt;
+import gov.nist.javax.sip.RequestEventExt;
 import gov.nist.javax.sip.header.Contact;
 import gov.nist.javax.sip.header.Route;
 import gov.nist.javax.sip.stack.NioMessageProcessorFactory;
@@ -39,6 +40,8 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.TooManyListenersException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.sip.DialogTerminatedEvent;
 import javax.sip.IOExceptionEvent;
@@ -101,6 +104,8 @@ public class Frontend implements SipListener {
 	protected Map<String, Affinity> affinities = new HashMap<String, Affinity>();
 	protected String lastNodeSelected;
 	protected Timer timer = new Timer();
+	protected String acl = "127\\.0\\.0\\.1";
+	protected Pattern aclp;
 	
 	static {
 		config = new Properties();
@@ -228,6 +233,9 @@ public class Frontend implements SipListener {
 		String wsport = config.getProperty("bind.port.ws");
 		String wssport = config.getProperty("bind.port.wss");
 		String ip = config.getProperty("bind.ip");
+		acl = config.getProperty("cluster.acl", acl);
+		if (acl != null)
+			aclp = Pattern.compile(acl);
 		
 		Properties properties = new Properties();
 		properties.setProperty("javax.sip.STACK_NAME","SIP Cluster Frontend");
@@ -356,8 +364,20 @@ public class Frontend implements SipListener {
 				if (req.getMethod().equals(Request.OPTIONS)) {
 					Header keepalive = req.getHeader("X-Balancer");
 					if (keepalive != null) {
-						if(keepalive.toString().equals("X-Balancer: keepalive\r\n")) {
-							processKeepAlive(req);
+						if(keepalive.toString().equals("X-Balancer: heartbeat\r\n")) {
+							// check acl
+							if (aclp != null) {
+								RequestEventExt requestEventExt = (RequestEventExt) ev;
+							    String ip = requestEventExt.getRemoteIpAddress();
+							    Matcher m = aclp.matcher(ip);
+							    if (m.matches()) {
+							    	processHeartbeat(req);
+							    	
+							    } else {
+							    	sendResponse(Response.FORBIDDEN, req, "Not matching ACL");
+							    	logger.warn("Heartbeat not accepted from server " + ip);
+							    }
+							}
 							
 						} else { 
 							 sendInternalServerError(req, "Invalid x-balancer header");
@@ -906,9 +926,7 @@ public class Frontend implements SipListener {
 	 * Handles keepalive from cluster nodes and stores node info 
 	 * @param req
 	 */
-	private void processKeepAlive(Request req) {
-		// TODO - verify origin against a list of authorized nodes/IPs
-		// ping from sip node
+	private void processHeartbeat(Request req) {
 		Response res;
 		try {
 			res = messageFactory.createResponse(Response.OK, req);
