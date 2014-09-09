@@ -62,6 +62,7 @@ import javax.sip.TransactionUnavailableException;
 import javax.sip.address.Address;
 import javax.sip.address.AddressFactory;
 import javax.sip.address.SipURI;
+import javax.sip.address.URI;
 import javax.sip.header.CSeqHeader;
 import javax.sip.header.CallIdHeader;
 import javax.sip.header.ContactHeader;
@@ -106,6 +107,7 @@ public class Frontend implements SipListener {
 	protected Timer timer = new Timer();
 	protected String acl = "127\\.0\\.0\\.1";
 	protected Pattern aclp;
+	protected String publicIP;
 	
 	static {
 		config = new Properties();
@@ -347,7 +349,6 @@ public class Frontend implements SipListener {
 
 	public void processRequest(RequestEvent ev) {
 		Request req = ev.getRequest();
-		//logger.trace("Received request " + req);
 		
 		ServerTransaction st = ev.getServerTransaction(); 
 		if ( st != null ) {
@@ -396,6 +397,9 @@ public class Frontend implements SipListener {
 	public void processResponse(ResponseEvent ev) {
 		Response res = ev.getResponse();
 		
+		if(logger.isTraceEnabled())
+			logger.trace("Forwarding response:\n" + res);
+		
 		// process response statelessly
 		ListIterator viaList = res.getHeaders(ViaHeader.NAME);
         if (viaList != null && viaList.hasNext())
@@ -404,11 +408,13 @@ public class Frontend implements SipListener {
             String viaHost = viaHeader.getHost();
             int viaPort = viaHeader.getPort();
             if (viaPort == -1) viaPort = 5060;
+            String transport = viaHeader.getTransport();
+            if (transport == null) 
+            	transport = "udp";
             
             // process affinity if X-balancer header present
             if (res.getHeader("X-Balancer") != null) {
-            	logger.debug("Processing: " + res.toString());
-    			CallIdHeader callid = (CallIdHeader)res.getHeader(CallIdHeader.NAME);
+            	CallIdHeader callid = (CallIdHeader)res.getHeader(CallIdHeader.NAME);
     			ContactHeader contact = (ContactHeader)res.getHeader(Contact.NAME);
     			try {
 					SipURI addrUri = (SipURI) contact.getAddress().getURI();
@@ -419,7 +425,7 @@ public class Frontend implements SipListener {
 				}
     		}
 
-            if (udp.getIPAddress().equals(viaHost) && viaPort == udp.getPort()) {
+            if (topViaMatchesProxy(viaHost, viaPort, transport)) {
                 if (logger.isTraceEnabled())
                     logger.trace("Top Via header matches proxy. Removing first Via header.");
 
@@ -428,13 +434,14 @@ public class Frontend implements SipListener {
                 viaList = res.getHeaders(ViaHeader.NAME);
                 if (viaList.hasNext()) {
                     try {
+                    	// rewrite record-route
+                    	rewriteRecordRoute(res);
+                    	
+                    	// send response
 						sipProvider.sendResponse(res);
 						
-						if (logger.isDebugEnabled())
-	                        logger.debug("Response forwarded statelessly " + res.getStatusCode());
-
-	                    if (logger.isTraceEnabled())
-	                        logger.trace("\n"+res);
+						if (logger.isTraceEnabled())
+	                        logger.trace("Sent response:\n" + res);
 	                    
 					} catch (SipException e) {
 						e.printStackTrace();
@@ -460,7 +467,8 @@ public class Frontend implements SipListener {
 	}
 	
 	private void forwardRequest(Request req) {
-		logger.debug("Forwarding request " + req);
+		if (logger.isTraceEnabled())
+			logger.trace("Received request:\n" + req);
 		
 		CallIdHeader callid = (CallIdHeader)req.getHeader(CallIdHeader.NAME);
 		ViaHeader via = (ViaHeader)req.getHeader(ViaHeader.NAME);
@@ -551,7 +559,7 @@ public class Frontend implements SipListener {
 			        clonedReq.addHeader(route);
 			        
 			        // forward
-			        sendRequest(clonedReq);
+			        sendRequest(clonedReq, "udp");
 						
 				} catch (ParseException e) {
 					e.printStackTrace();
@@ -615,6 +623,15 @@ public class Frontend implements SipListener {
 			   into the Request-URI.  The UAC MUST NOT add a Route header field to
 			   the request.*/
 		}
+		// Resolve next hop transport 
+		String transport = "udp";
+		if (req.getRequestURI().isSipURI()) {
+			transport = ((SipURI)req.getRequestURI()).getTransportParam();
+		}
+		RouteHeader route = (RouteHeader)clonedReq.getHeader(RouteHeader.NAME);
+		if (route != null && ((SipURI)route.getAddress().getURI()).hasLrParam()) {
+			transport = ((SipURI)route.getAddress().getURI()).getTransportParam();
+		}
 		
 		// 3.  Update the Max-Forwards header field
 		MaxForwardsHeader maxFwdHeader = (MaxForwardsHeader)clonedReq.getHeader(MaxForwardsHeader.NAME);
@@ -645,8 +662,10 @@ public class Frontend implements SipListener {
 		// 4.  Optionally add a Record-route header field value
 		SipURI sipURI;
 		try {
-			sipURI = addressFactory.createSipURI(null, udp.getIPAddress());
-			sipURI.setPort(udp.getPort());
+			sipURI = addressFactory.createSipURI(null, getMyIPAddress());
+			sipURI.setPort(getPortbyTransport(transport));
+			if (!transport.equalsIgnoreCase("udp"))
+				sipURI.setTransportParam(transport);
 			sipURI.setLrParam();
 	        Address address = addressFactory.createAddress(null, sipURI);
 	        RecordRouteHeader recordRouteHeader = headerFactory.createRecordRouteHeader(address);
@@ -665,7 +684,7 @@ public class Frontend implements SipListener {
 		// 5.  Optionally add additional header fields
 		// 6.  Postprocess routing information
         // 7.  Determine the next-hop address, port, and transport
-		sendRequest(clonedReq);
+		sendRequest(clonedReq, transport);
 	}
 	
 	/**
@@ -688,7 +707,7 @@ public class Frontend implements SipListener {
 	        RouteHeader route = headerFactory.createRouteHeader(routeAddr);
 	        clonedReq.addHeader(route);
 			
-			sendRequest(clonedReq);
+			sendRequest(clonedReq, "udp");
 				
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -735,6 +754,15 @@ public class Frontend implements SipListener {
 			   into the Request-URI.  The UAC MUST NOT add a Route header field to
 			   the request.*/
 		}
+		// Resolve next hop transport 
+		String transport = "udp";
+		if (req.getRequestURI().isSipURI()) {
+			transport = ((SipURI)req.getRequestURI()).getTransportParam();
+		}
+		RouteHeader route = (RouteHeader)clonedReq.getHeader(RouteHeader.NAME);
+		if (route != null && ((SipURI)route.getAddress().getURI()).hasLrParam()) {
+			transport = ((SipURI)route.getAddress().getURI()).getTransportParam();
+		}
 		
 		// 3.  Update the Max-Forwards header field
 		MaxForwardsHeader maxFwdHeader = (MaxForwardsHeader)clonedReq.getHeader(MaxForwardsHeader.NAME);
@@ -765,16 +793,17 @@ public class Frontend implements SipListener {
 		// 5.  Optionally add additional header fields
 		// 6.  Postprocess routing information
         // 7.  Determine the next-hop address, port, and transport
-		sendRequest(clonedReq);
+		sendRequest(clonedReq, transport);
 	}
 	
 	/**
 	 * Sends request. Creates Via header and sends through provider statelessly
 	 * @param req
 	 */
-	private void sendRequest(Request req) {
+	private void sendRequest(Request req, String transport) {
 		try
         {
+			if (transport == null) transport = "udp";
 			// 8.  Add a Via header field value
 			/* 16.11 
 				The requirement for unique branch IDs across space and time
@@ -804,7 +833,7 @@ public class Frontend implements SipListener {
 	         these fields will always vary across two different
 	         transactions. */
 			
-			String branchId = null/*SipUtils.generateBranchId()*/;
+			String branchId = null;
             ViaHeader topmostViaHeader = (ViaHeader) req.getHeader(ViaHeader.NAME);
             if (topmostViaHeader != null)
             {
@@ -831,7 +860,7 @@ public class Frontend implements SipListener {
                 branchId = bytesToHex(hash);
             }
             // create header
-            ViaHeader viaHeader = headerFactory.createViaHeader(udp.getIPAddress(), udp.getPort(), "udp", branchId);
+            ViaHeader viaHeader = headerFactory.createViaHeader(getMyIPAddress(), getPortbyTransport(transport), transport, branchId);
             req.addFirst(viaHeader);
             
         } catch(NoSuchAlgorithmException e) {
@@ -851,7 +880,9 @@ public class Frontend implements SipListener {
 		// 10. Forward the new request
 		try {
 			sipProvider.sendRequest(req);
-			logger.debug("Forwarded\n" + req);
+			
+			if (logger.isTraceEnabled())
+				logger.trace("Sent request:\n" + req);
 			
 		} catch (SipException e) {
 			e.printStackTrace();
@@ -1071,5 +1102,66 @@ public class Frontend implements SipListener {
 	        hexChars[j * 2 + 1] = hexArray[v & 0x0F];
 	    }
 	    return new String(hexChars);
+	}
+	
+	private int getPortbyTransport(String transport) {
+		try {
+			if (transport == null) transport = "udp";
+			
+			if (transport.equalsIgnoreCase(ListeningPointExt.UDP)) {
+				return udp.getPort();
+			} else if (transport.equalsIgnoreCase(ListeningPointExt.TCP)) {
+				return tcp.getPort();
+			} else if (transport.equalsIgnoreCase(ListeningPointExt.TLS)) {
+				return tls.getPort();
+			} else if (transport.equalsIgnoreCase(ListeningPointExt.WS)) {
+				return ws.getPort();
+			} else if (transport.equalsIgnoreCase(ListeningPointExt.WSS)) {
+				return wss.getPort();
+			}
+		} catch (NullPointerException e) {
+		}
+		
+		return 5060;
+	}
+	
+	private String getMyIPAddress() {
+		return (publicIP != null)?publicIP:udp.getIPAddress();
+	}
+	
+	private void rewriteRecordRoute(Response res) {
+		try {
+			RecordRouteHeader rr = (RecordRouteHeader)res.getHeader(RecordRouteHeader.NAME);
+			if (rr != null) {
+				// get transport
+				ViaHeader viaH = (ViaHeader)res.getHeaders(ViaHeader.NAME).next();
+				if (viaH != null) {
+					SipURI rrUri = (SipURI)rr.getAddress().getURI();
+					String transport = viaH.getTransport();
+					if (transport == null) 
+						transport = "udp";
+					String rrTransport = rrUri.getTransportParam();
+					if (rrTransport == null) 
+						rrTransport = "udp";
+					if (rrTransport != transport) {
+						rrUri.setTransportParam(transport);
+						rrUri.setPort(getPortbyTransport(transport));
+					}
+				}
+			} else 
+				return;
+			
+		} catch (Exception e) {
+			
+		}
+	}
+	
+	private boolean topViaMatchesProxy(String host, int port, String transport) {
+		if ((udp.getIPAddress().equals(host) ||	(publicIP != null && publicIP.equals(host))) &&
+				port == getPortbyTransport(transport)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
