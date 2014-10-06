@@ -235,6 +235,7 @@ public class Frontend implements SipListener {
 		String wsport = config.getProperty("bind.port.ws");
 		String wssport = config.getProperty("bind.port.wss");
 		String ip = config.getProperty("bind.ip");
+		publicIP = config.getProperty("external.ip", null);
 		acl = config.getProperty("cluster.acl", acl);
 		if (acl != null)
 			aclp = Pattern.compile(acl);
